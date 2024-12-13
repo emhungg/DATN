@@ -1,0 +1,149 @@
+<section>
+  <div class="container">
+    <div class="cart cart-checkout">
+      <div class="header">
+        <div class="back">
+          <a href="javascript:window.history.back();">
+            <i class="fal fa-arrow-left"></i>
+            <strong>Quay lại</strong>
+          </a>
+        </div>
+      </div>
+
+      <div class="d-flex align-items-center justify-content-center text-center">
+        <div class="cart-icon">
+          <i class="fal fa-check-to-slot"></i>
+          <label>Đặt hàng thành công HoangHaMobile sẽ sớm liên hệ với bạn.</label>
+        </div>
+      </div>
+
+      <div class="order-infomation" *ngIf="userInfor">
+        <h3>1. Thông tin người đặt hàng</h3>
+
+        <table class="table table-order">
+          <tr>
+            <td class="label" style="width: 110px">Họ tên</td>
+            <td class="content" style="width: 320px">
+              {{ userInfor.userName }}
+            </td>
+            <td class="label" style="width: 95px">Điện thoại</td>
+            <td class="content">{{ userInfor.phoneNumber }}</td>
+            <td class="label" style="width: 75px">Email</td>
+            <td class="content">{{ userInfor.email }} &nbsp;</td>
+          </tr>
+          <tr>
+            <td class="label">Nhận hàng tại</td>
+            <td class="content">
+              <span
+                >{{ userInfor.addressReceive }}, {{ userInfor.district }},
+                {{ userInfor.province }}
+              </span>
+            </td>
+          </tr>
+          <tr>
+            <td class="label">Ghi chú</td>
+            <td colspan="5">{{ userInfor.note }}</td>
+          </tr>
+          <tr>
+            <td class="label">Mốc thời gian</td>
+            <td colspan="5">
+              {{ currentDateTime | date : "dd/MM/yyyy hh:mm a" }}
+            </td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="order-infomation">
+        <h3>2. Danh sách sản phẩm đặt hàng</h3>
+
+        <table class="table table-border talbe-order table-product">
+          <tr>
+            <th>#</th>
+            <th>Tên sản phẩm</th>
+            <th>Phiên bản</th>
+            <th>Màu sắc</th>
+            <th>SL</th>
+            <th>Giá tiền</th>
+            <th>Tổng (SLxG)</th>
+          </tr>
+          <tbody *ngFor="let item of listOrderItem; let i = index">
+            <tr>
+              <td align="center" valign="middle" rowspan="13">{{ i + 1 }}</td>
+              <td>
+                <strong>{{ item.productName }}</strong>
+              </td>
+              <td align="center">Mặc định</td>
+              <td align="center">Mặc định</td>
+              <td align="center">{{ item.quantity }}</td>
+              <td align="center">
+                {{
+                  item.priceSell > 0
+                    ? (item.priceSell | number)
+                    : (item.price | number)
+                }}
+                ₫
+              </td>
+              <td align="center">
+                {{
+                  item.priceSell > 0
+                    ? (item.priceSell * item.quantity | number)
+                    : (item.price * item.quantity | number)
+                }}
+                ₫
+              </td>
+            </tr>
+            <tr class="text-darkgray"></tr>
+            <tr class="text-darkgray">
+              <td colspan="6">
+                <label class="bag">KM</label>
+                <i
+                  >Giảm th&#234;m tới 1.000.000đ khi tham gia Thu cũ - L&#234;n
+                  đời điện thoại</i
+                >
+              </td>
+            </tr>
+            <tr class="text-darkgray"></tr>
+            <tr class="text-darkgray"></tr>
+            <tr class="text-darkgray"></tr>
+            <tr class="text-darkgray"></tr>
+            <tr class="text-darkgray"></tr>
+            <tr class="text-darkgray"></tr>
+            <tr class="text-darkgray"></tr>
+            <tr class="text-darkgray"></tr>
+            <tr class="text-darkgray"></tr>
+            <tr class="text-darkgray"></tr>
+          </tbody>
+          <tr class="no-border">
+            <td colspan="6" align="right">Tổng tiền:</td>
+            <td>
+              <strong class="text-red"
+                >{{ userInfor.totalAmount | number }} ₫</strong
+              >
+            </td>
+          </tr>
+
+          <tr class="no-border">
+            <td colspan="6" align="right">Tổng SL:</td>
+            <td>{{ totalQuantity }}</td>
+          </tr>
+          <tr class="no-border">
+            <td colspan="6" align="right">Bằng chữ:</td>
+            <td>
+              <strong class="text-red">{{
+                totalPriceWords | uppercase
+              }}</strong>
+            </td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="row">
+        <div class="control-button just-center">
+          <button type="submit" routerLink="/">
+            <i class="fal fa-basket-shopping"></i> TIẾP TỤC MUA HÀNG
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

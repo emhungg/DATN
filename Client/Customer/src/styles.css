@@ -1,0 +1,94 @@
+/* You can add global styles to this file, and also import other style files
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; } */
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  position: relative;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f4f4f4;
+}
+
+/* css for carousel product prev/next*/
+.policy-product .owl-prev,
+.policy-product .owl-next {
+  background: whitesmoke!important;
+  color: #222 !important;
+  height: 60px !important;
+  width: 60px !important;
+  border-radius: 50% !important;
+  top: 50%;
+  position: absolute;
+  box-shadow: 1px 4px 8px 0px rgba(0, 0, 0, 0.5);
+}
+
+.policy-product .owl-prev:hover,
+.policy-product .owl-next:hover {
+  background: rgba(248, 232, 232, 0.958)!important;
+}
+
+.policy-product .owl-prev {
+  left: -10px;
+  transform: translate(-50%, -50%);
+}
+.policy-product .owl-next {
+  right: -70px;
+  transform: translate(-50%, -50%);
+}
+
+.policy-product .owl-prev i,
+.policy-product .owl-next i {
+  font-size: 24px;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+}
+
+/* css for prev/next banner */
+.banner .owl-prev,
+.banner .owl-next {
+  background: #C2C2C273!important;
+  color: #fff4f4 !important;
+  height: 46px !important;
+  width: 46px !important;
+  border-radius: 50% !important;
+  top: 50%;
+  position: absolute;
+}
+
+.banner .owl-prev:hover,
+.banner .owl-next:hover {
+  background: rgba(244, 239, 239, 0.958)!important;
+  color: gray!important;
+}
+
+.banner .owl-prev {
+  left: 41px;
+  transform: translate(-50%, -50%);
+}
+.banner .owl-next {
+  right: 0px;
+  transform: translate(-50%, -50%);
+}
+
+.banner .owl-prev i,
+.banner .owl-next i {
+  font-size: 24px;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+}
+
+.slick-slide{
+  background: white;
+  margin: 5px;
+  width: 121.6px;
+  border-radius: 5px;
+}

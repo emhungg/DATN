@@ -1,0 +1,547 @@
+<section *ngIf="dataProductDetail">
+  <div class="container">
+    <div class="product-details">
+      <div class="top-product">
+        <h1>
+          {{ dataProductDetail.productName }}
+        </h1>
+      </div>
+
+      <div class="product-details-container">
+        <div class="product-image">
+          <div class="love-this-button">
+            <a
+              role="button"
+              class="nav-link ml-auto"
+              (click)="toggleHeart(dataProductDetail)"
+              ><i
+                class="fal fa-heart heart-icon"
+                [ngClass]="{ 'red-background': dataProductDetail.isLike }"
+                style="font-size: 20px; margin: 0 5px 0 5px; color: red"
+              ></i
+            ></a>
+          </div>
+
+          <div id="imagePreview">
+            <app-carousel-product-details
+              [items]="dataProductDetail.images"
+            ></app-carousel-product-details>
+          </div>
+        </div>
+
+        <div class="product-center" style="position: relative">
+          <p class="price current-product-price">
+            <strong>
+              {{
+                dataProductDetail.productSell > 0
+                  ? (dataProductDetail.productSell | number)
+                  : (dataProductDetail.productPrice | number)
+              }}
+              ₫
+            </strong>
+            <i
+              *ngIf="dataProductDetail.productSell > 0"
+              class="text-decoration-line-through"
+              >{{ dataProductDetail.productPrice | number }} ₫</i
+            >
+
+            <i> | Giá đã bao gồm VAT</i>
+            <br /><label
+              class="text-green"
+              *ngIf="dataProductDetail.productSell > 0"
+              >Giá sốc giảm giá chỉ còn
+              {{ dataProductDetail.productSell | number }} ₫</label
+            >
+          </p>
+          <p class="freeship">
+            <i class="fal fa-truck"></i>
+            <span> Miễn phí vận chuyển toàn quốc </span>
+          </p>
+
+          <div class="product-option color">
+            <strong class="label">Đặt mua hàng ngay</strong>
+            <div class="options" id="colorOptions">
+              <div class="item selected">
+                <span
+                  ><label><strong>Giá chỉ</strong></label></span
+                >
+                <strong
+                  >{{
+                    dataProductDetail.productSell > 0
+                      ? (dataProductDetail.productSell | number)
+                      : (dataProductDetail.productPrice | number)
+                  }}
+                  ₫</strong
+                >
+              </div>
+              <div
+                class="item selected"
+                *ngIf="dataProductDetail.productStatus === 1"
+              >
+                <span
+                  ><label><strong>Hàng cũ</strong></label></span
+                >
+                <p style="font-size: 10px">
+                  <strong>Máy đẹp, không trầy xước</strong>
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div style="display: flex"></div>
+
+          <div class="product-action">
+            <a
+              title="Mua ngay"
+              data-sku="MPUR4EU"
+              routerLink="/cart"
+              (click)="addToCart()"
+              class="btn-red btnQuickOrder btnbuy"
+              ><strong>MUA NGAY</strong
+              ><span> Giao tận nhà (COD) <br />Hoặc Nhận tại cửa hàng</span></a
+            >
+
+            <a
+              style="
+                width: 43px;
+                display: flex;
+                flex-direction: column;
+                max-width: 80px;
+                padding: 5px;
+              "
+              title="Thêm vào giỏ hàng"
+              role="button"
+              (click)="addToCart()"
+              class="add-cart btn-orange btnbuy btn-icon"
+              ><i class="fal fa-cart-plus"></i
+              ><label style="font-size: 11px">Thêm giỏ hàng</label></a
+            >
+          </div>
+
+          <div
+            class="product-promotion"
+            style="
+              padding: 8px;
+              border-radius: 6px;
+              background: #fff;
+              margin-top: 15px;
+            "
+            *ngIf="dataProductDetail.productStatus === 0"
+          >
+            <div>
+              <strong class="label text-green">KHUYẾN M&#195;I</strong>
+              <ul>
+                <li><span class="bag">KM 1</span></li>
+                <li>
+                  <a style="font-weight: normal"
+                    >Giảm th&#234;m tới 700.000đ khi mua thêm sản phẩm khác cùng
+                    giá.</a
+                  >
+                </li>
+                <li><span class="bag">KM 2</span></li>
+                <li>
+                  <a style="font-weight: normal"
+                    >Giảm 1% khi thực hiện thanh toán tại của càng.</a
+                  >
+                </li>
+                <li><span class="bag">KM 3</span></li>
+                <li>
+                  <a style="font-weight: normal"
+                    >Giảm th&#234;m 30% gi&#225; trị m&#225;y cũ, tối đa
+                    2.000.000đ khi tham gia thu cũ.</a
+                  >
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <strong class="label"
+                >ƯU Đ&#195;I ĐI K&#200;M CHO THÀNH VIÊN TSHOP</strong
+              >
+              <ul>
+                <li>
+                  <a style="font-weight: normal">
+                    <i class="icon-checked text-green"></i>
+                    Tặng phiếu mua hàng tùy theo mức rank của thành viên TShop
+                    (Code chỉ sử dụng 1 lần, áp dụng cho các đơn hàng (Trừ thẻ
+                    cào, sim, phí thu hộ, gói BHMR) có giá trị lớn gấp đôi giá
+                    trị code)
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="product-shop">
+          <div class="warranty">
+            <h4>THÔNG TIN BẢO HÀNH</h4>
+            <p *ngIf="dataProductDetail.productStatus === 0">
+              <i class="fal fa-shield-check"></i>
+              <span
+                ><strong
+                  >Bảo h&#224;nh 12 th&#225;ng ch&#237;nh h&#227;ng</strong
+                ></span
+              >
+            </p>
+
+            <p>
+              <a role="button"
+                ><i class="fal fa-shield-check"></i
+                ><strong
+                  ><span
+                    >Bao x&#224;i đổi lỗi trong 30 ng&#224;y đầu, nếu lỗi do
+                    nh&#224; sản xuất</span
+                  ></strong
+                ></a
+              >
+            </p>
+          </div>
+
+          <div class="check-stock" id="marketFilter">
+            <div class="city">
+              <p>địa chỉ cửa hàng</p>
+              <span role="button" class="button"
+                ><i class="fal fa-location-dot"></i>&nbsp;
+                <label>Toàn bộ chi nhánh</label></span
+              >
+            </div>
+
+            <div class="stock-sum" id="stock-sum"></div>
+            <div class="store">
+              <ul>
+                <li class="instock city_1">
+                  <span>
+                    <label>298 Cầu Diễn, Bắc Từ Liêm, Hà Nội</label>
+
+                    <label class="data">
+                      <strong
+                        ><i class="fal fa-headset"></i>&nbsp;
+                        <a>0326.054.827</a></strong
+                      >
+                      - <i class="fal fa-location-dot"></i>&nbsp;
+                      <a title="298 Cầu Diễn, Bắc từ liêm" role="button"
+                        >Chỉ đường</a
+                      >
+                    </label>
+                  </span>
+                </li>
+                <li class="instock city_1">
+                  <span>
+                    <label>112 Nguyên Xá, Bắc Từ Liêm, Hà Nội</label>
+
+                    <label class="data">
+                      <strong
+                        ><i class="fal fa-headset"></i>&nbsp;
+                        <a>0326.054.827</a></strong
+                      >
+                      - <i class="fal fa-location-dot"></i>&nbsp;
+                      <a
+                        title="112 Nguyên Xá, Bắc Từ Liêm, Hà Nội"
+                        role="button"
+                        >Chỉ đường</a
+                      >
+                    </label>
+                  </span>
+                </li>
+                <li class="instock city_1">
+                  <span>
+                    <label>Xóm 8, Ý Yên, Nam Định</label>
+
+                    <label class="data">
+                      <strong
+                        ><i class="fal fa-headset"></i>&nbsp;
+                        <a>0326.054.827</a></strong
+                      >
+                      - <i class="fal fa-location-dot"></i>&nbsp;
+                      <a title="Xóm 8, Ý Yên, Hà Nội" role="button"
+                        >Chỉ đường</a
+                      >
+                    </label>
+                  </span>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="out-date" *ngIf="dataProductDetail.productStatus === 0">
+            <p class="title">
+              <strong
+                ><a role="button">{{
+                  dataProductDetail.productName
+                }}</a></strong
+              >
+            </p>
+            <div class="note">
+              <p>
+                <i>Giá chỉ từ: </i>
+                <strong class="text-red"
+                  >{{
+                    dataProductDetail.productSell > 0
+                      ? (dataProductDetail.productSell | number)
+                      : (dataProductDetail.productPrice | number)
+                  }}
+                  ₫</strong
+                >
+              </p>
+              <p *ngIf="dataProductDetail.productSell > 0">
+                <i>Tiết kiệm: </i>
+                <strong class="text-red"
+                  >{{
+                    dataProductDetail.productPrice -
+                      dataProductDetail.productSell | number
+                  }}
+                  ₫</strong
+                >
+              </p>
+              Bảo hành chính hãng trong vòng 1 năm , Bao xài đổi trả trong 30
+              ngày đầu
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <section>
+    <div class="container">
+      <div class="product-layout product-layout-grid">
+        <div class="product-left">
+          <div class="product-text" id="productContent">
+            <div
+              class="content"
+              [innerHTML]="htmlContent"
+              [ngClass]="{ expanded: showFullContent }"
+            ></div>
+          </div>
+          <div class="view-more-container">
+            <a
+              (click)="toggleContentVisibility()"
+              role="button"
+              id="viewMoreContent"
+            >
+              {{ showFullContent ? "Thu gọn" : "Xem thêm" }}</a
+            >
+          </div>
+        </div>
+
+        <div class="product-right">
+          <div class="product-specs">
+            <h3>
+              {{ dataProductDetail.productName }}
+            </h3>
+            <div class="product-spect-img">
+              <img
+                loading="lazy"
+                [src]="dataProductDetail.images[0].imagePath"
+              />
+            </div>
+            <div
+              class="specs-special"
+              *ngIf="
+                dataProductDetail.categoryId === 'dien-thoai' ||
+                dataProductDetail.categoryId === 'lap-top' ||
+                dataProductDetail.categoryId === 'tablet' ||
+                dataProductDetail.categoryId === 'pc'
+              "
+            >
+              <ol>
+                <li>
+                  <strong>Màn hình: </strong>
+                  <span>{{ dataProductDetail.productConfig.screen }}</span>
+                </li>
+              </ol>
+              <ol>
+                <li>
+                  <strong>Chip: </strong>
+                  <span>{{ dataProductDetail.productConfig.chip }}</span>
+                </li>
+              </ol>
+              <ol>
+                <li>
+                  <strong>Ram: </strong>
+                  <span>{{ dataProductDetail.productConfig.ram }} GB</span>
+                </li>
+              </ol>
+              <ol>
+                <li>
+                  <strong>Rom: </strong>
+                  <span>{{ dataProductDetail.productConfig.rom }} GB</span>
+                </li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="header-container">
+      <div class="header">
+        <h4>
+          <a class="nav-link">Sản phẩm tương tự</a>
+        </h4>
+      </div>
+    </div>
+    <app-carousel-product [items]="ItemSimilar"></app-carousel-product>
+  </div>
+
+  <div class="container">
+    <div
+      class="fb-comments"
+      data-href="https://devtdt.id.vn"
+      data-width="1180"
+      data-numposts="5"
+    ></div>
+  </div>
+  <div class="container">
+    <div class="full-width-content">
+      <form id="reviewForm" [formGroup]="formRating">
+        <div class="heading d-flex">
+          <h3>{{ dataProductDetail.productName }}</h3>
+          <div class="stats d-flex align-items-baseline">
+            <div class="display-rating rating-medium">
+              <button
+                mat-icon-button
+                [color]="color"
+                *ngFor="let ratingId of ratingArr; index as i"
+                [id]="'star_' + i"
+                [matTooltip]="(ratingId + 1).toString()"
+                matTooltipPosition="above"
+                style="padding: 2px; width: 30px; height: 10px"
+              >
+                <mat-icon>
+                  {{ showTnotalRating(dataRating.ratioRating, i) }}
+                </mat-icon>
+              </button>
+            </div>
+            <span>(TB {{ dataRating.ratioRating }} / 1 lượt đánh giá)</span>
+          </div>
+        </div>
+        <div class="rc-form review-form d-flex">
+          <div class="col d-flex flex-column">
+            <div class="control d-flex">
+              <textarea
+                title="Nội dung"
+                placeholder="Nội dung. Tối thiểu 15 ký tự"
+                name="Content"
+                style="height: 100px; overflow-y: hidden"
+                formControlName="comment"
+              ></textarea>
+            </div>
+          </div>
+          <div class="col d-flex flex-column">
+            <div class="row">
+              <div class="control d-flex">
+                <input
+                  type="text"
+                  name="Title"
+                  placeholder="Họ tên"
+                  formControlName="userName"
+                />
+              </div>
+            </div>
+            <div class="row">
+              <div class="control d-flex">
+                <input
+                  type="tel"
+                  name="Phone"
+                  placeholder="Số điện thoại mua hàng"
+                  formControlName="phoneNumber"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="col d-flex flex-column">
+            <div class="row">
+              <div class="control d-flex">
+                <input
+                  type="email"
+                  name="Email"
+                  placeholder="Email"
+                  formControlName="email"
+                />
+              </div>
+            </div>
+            <div class="row row-rate d-flex">
+              <strong>Đánh giá của bạn: </strong>
+              <div class="display-rating rating d-flex">
+                <button
+                  mat-icon-button
+                  [color]="color"
+                  *ngFor="let ratingId of ratingArr; index as i"
+                  [id]="'star_' + i"
+                  (click)="onClick(i + 1)"
+                  [matTooltip]="(ratingId + 1).toString()"
+                  matTooltipPosition="above"
+                >
+                  <mat-icon>
+                    {{ showIcon(i) }}
+                  </mat-icon>
+                </button>
+                <div class="d-grid gap-2">
+                  <button
+                    type="button"
+                    name=""
+                    id=""
+                    class="btn btn-outline-secondary"
+                    style="
+                      font-size: 10px;
+                      padding: 4px;
+                      height: 30px;
+                      margin-left: 15px;
+                    "
+                    (click)="sendProcessRating()"
+                  >
+                    Gửi đánh giá <i class="fal fa-paper-plane"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+
+      <div class="review-content" id="reviewContent" *ngIf="dataRating.ratingData.length > 0">
+        <div class="item d-flex mb-5 border-bottom" *ngFor="let item of dataRating.ratingData">
+          <div class="avt">
+            <img
+              loading="lazy"
+              src="https://hoanghamobile.com/Content/web/img/no-avt.png"
+            />
+          </div>
+          <div class="info">
+            <p
+              itemprop="author"
+              itemtype="http://schema.org/Person"
+              itemscope=""
+            >
+              <strong class="name" itemprop="name" content="Fred Benson"
+                >{{item.userName}}</strong
+              >
+            </p>
+            <div class="display-rating rating-medium">
+              <button
+                mat-icon-button
+                [color]="color"
+                *ngFor="let ratingId of ratingArr; index as i"
+                [id]="'star_' + i"
+                [matTooltip]="(ratingId + 1).toString()"
+                matTooltipPosition="above"
+                style="padding: 0; width: 20px; height: 10px"
+              >
+                <mat-icon>
+                  {{ showRatingOfUser(item.rating, i) }}
+                </mat-icon>
+              </button>
+            </div>
+            <p>
+              <label><i>{{item.commentAt}}</i></label>
+            </p>
+            <div class="content" style="font-size: 12px">
+              {{item.comment}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

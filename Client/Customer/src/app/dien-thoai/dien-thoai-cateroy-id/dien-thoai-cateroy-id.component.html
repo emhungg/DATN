@@ -1,0 +1,152 @@
+<div class="container containers-product">
+  <app-slide-supplier></app-slide-supplier>
+  <section>
+    <div class="container">
+      <div class="product-filters2">
+        <div class="left">
+          <strong class="label">Lọc danh sách:</strong>
+          <div class="facet">
+            <label>
+              <a> Danh mục <i class="fal fa-angle-down"></i> </a>
+            </label>
+            <div class="sub">
+              <ul>
+                <li>
+                  <a routerLink="/dien-thoai/iphone">Apple</a>
+                </li>
+                <li>
+                  <a routerLink="/dien-thoai/samsung">Samsung</a>
+                </li>
+                <li>
+                  <a routerLink="/dien-thoai/xiaomi">Xiaomi</a>
+                </li>
+                <li>
+                  <a routerLink="/dien-thoai/oppo">OPPO</a>
+                </li>
+                <li>
+                  <a routerLink="/dien-thoai/tecno">TECNO</a>
+                </li>
+                <li>
+                  <a routerLink="/dien-thoai/nokia">Nokia</a>
+                </li>
+                <li>
+                  <a routerLink="/dien-thoai/realme">realme</a>
+                </li>
+                <li>
+                  <a routerLink="/dien-thoai/vivo">Vivo</a>
+                </li>
+                <li>
+                  <a routerLink="/dien-thoai/honor">HONOR</a>
+                </li>
+                <li>
+                  <a routerLink="/dien-thoai/htc">HTC</a>
+                </li>
+                <li>
+                  <a routerLink="/dien-thoai/infinix">Infinix</a>
+                </li>
+                <li>
+                  <a routerLink="/dien-thoai/asus">ROG</a>
+                </li>
+                <li>
+                  <a routerLink="/dien-thoai/nubia">Nubia</a>
+                </li>
+                <li>
+                  <a routerLink="/dien-thoai/xor">XOR</a>
+                </li>
+                <li>
+                  <a routerLink="/dien-thoai/masstel">Masstel</a>
+                </li>
+                <li>
+                  <a routerLink="/dien-thoai/tcl">TCL</a>
+                </li>
+                <li>
+                  <a routerLink="/dien-thoai/itel">Itel</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="facet">
+            <label>
+              <a> Giá <i class="fal fa-angle-down"></i> </a>
+            </label>
+            <div class="sub">
+              <ul>
+                <li>
+                  <a (click)="filterPrice(1)" role="button"> Dưới 1 triệu </a>
+                </li>
+                <li>
+                  <a (click)="filterPrice(2)" role="button"> Dưới 2 triệu </a>
+                </li>
+                <li>
+                  <a (click)="filterPrice(3)" role="button"> Dưới 3 triệu </a>
+                </li>
+                <li>
+                  <a (click)="filterPrice(4)" role="button"> Dưới 4 triệu </a>
+                </li>
+                <li>
+                  <a (click)="filterPrice(5)" role="button"> Dưới 5 triệu </a>
+                </li>
+                <li>
+                  <a (click)="filterPrice(6)" role="button"> Dưới 6 triệu </a>
+                </li>
+                <li>
+                  <a (click)="filterPrice(8)" role="button"> Dưới 8 triệu </a>
+                </li>
+                <li>
+                  <a (click)="filterPrice(8)" role="button"> Dưới 10 triệu </a>
+                </li>
+                <li>
+                  <a (click)="filterPrice(12)" role="button"> Dưới 12 triệu </a>
+                </li>
+                <li>
+                  <a (click)="filterPrice(15)" role="button"> Dưới 15 triệu </a>
+                </li>
+                <li>
+                  <a (click)="filterPrice(20)" role="button"> Dưới 20 triệu </a>
+                </li>
+                <li>
+                  <a (click)="filterPrice(100)" role="button">
+                    Dưới 100 triệu
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="right">
+          <div class="facet">
+            <label> Sắp xếp <i class="fal fa-angle-down"></i> </label>
+            <div class="sub">
+              <ul>
+                <li>
+                  <a (click)="sortData(2)">
+                    <span class="fa fa-angle-right"></span>
+                    Mặc định
+                  </a>
+                </li>
+
+                <li>
+                  <a (click)="sortData(0)">
+                    <span class="fa fa-angle-right"></span>
+                    Giá thấp đến cao
+                  </a>
+                </li>
+                <li>
+                  <a (click)="sortData(1)">
+                    <span class="fa fa-angle-right"></span>
+                    Giá cao đến thấp
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <app-product-list
+    [items]="allItems"
+    [title]="titleCategory"
+  ></app-product-list>
+</div>

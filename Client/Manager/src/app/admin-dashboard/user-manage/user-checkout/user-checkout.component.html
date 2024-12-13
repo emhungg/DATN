@@ -1,0 +1,193 @@
+<section>
+  <div class="container mw-100">
+    <div class="card">
+      <p-table
+        #dt1
+        [value]="userDatas"
+        dataKey="userId"
+        [paginator]="true"
+        [rows]="10"
+        [showCurrentPageReport]="true"
+        currentPageReportTemplate="Showing {first} to {last} of {totalRecords} users"
+        (onPage)="pageChange($event)"
+        [rowsPerPageOptions]="[10, 25, 50]"
+        [tableStyle]="{ 'min-width': '50rem' }"
+        [filterDelay]="0"
+        [globalFilterFields]="['userId', 'userName', 'phoneNumber']"
+        editMode="row"
+      >
+        <ng-template pTemplate="caption">
+          <div class="d-flex align-items-center justify-content-between">
+            <h5 class="m-2 bold">Manage Users</h5>
+            <span>
+              Search:
+              <input
+                pInputText
+                type="text"
+                (input)="
+                  dt1.filterGlobal(extractInputValue($event), 'contains')
+                "
+                placeholder="Search..."
+                class="p-1 m-2"
+              />
+            </span>
+          </div>
+        </ng-template>
+        <ng-template pTemplate="header">
+          <tr>
+            <th style="width: 4rem" class="d-flex justify-content-center">#</th>
+            <th pSortableColumn="userId">
+              User Id <p-sortIcon field="userId"></p-sortIcon>
+            </th>
+            <th pSortableColumn="userName">
+              Name <p-sortIcon field="userName"></p-sortIcon>
+            </th>
+            <th pSortableColumn="phoneNumber">
+              Phone <p-sortIcon field="phoneNumber"></p-sortIcon>
+            </th>
+            <th pSortableColumn="email">
+              Email <p-sortIcon field="email"></p-sortIcon>
+            </th>
+            <th pSortableColumn="gender">
+              Gender <p-sortIcon field="gender"></p-sortIcon>
+            </th>
+            <th pSortableColumn="role">
+              Role <p-sortIcon field="role"></p-sortIcon>
+            </th>
+            <th pSortableColumn="rankUser">
+              Rank <p-sortIcon field="rankUser"></p-sortIcon>
+            </th>
+            <th pSortableColumn="isActive">
+              Active <p-sortIcon field="isActive"></p-sortIcon>
+            </th>
+            <th pSortableColumn="createDateAt">
+              Join Date <p-sortIcon field="createDateAt"></p-sortIcon>
+            </th>
+            <th pSortableColumn="address">
+              Address <p-sortIcon field="address"></p-sortIcon>
+            </th>
+          </tr>
+        </ng-template>
+        <ng-template
+          pTemplate="body"
+          let-user
+          let-rowIndex="rowIndex"
+          let-editing="editing"
+        >
+          <tr [pEditableRow]="user">
+            <td style="width: 4rem" class="d-flex justify-content-center">
+              {{ rowIndex + 1 }}
+            </td>
+            <td>
+              <strong>{{ user.userId }}</strong>
+            </td>
+            <td>{{ user.userName }}</td>
+            <td>{{ user.phoneNumber }}</td>
+            <td>{{ user.email }}</td>
+            <td>
+              {{ user.gender === 0 ? "Male" : "Female" }}
+            </td>
+            <td>
+              <p-cellEditor>
+                <ng-template pTemplate="input">
+                  <p-dropdown
+                    [options]="statuses"
+                    appendTo="body"
+                    [(ngModel)]="user.role"
+                    [style]="{ width: '5rem' }"
+                  ></p-dropdown>
+                </ng-template>
+                <ng-template pTemplate="output">
+                  <p-tag
+                    [value]="getRoles(user.role)"
+                    [severity]="getSeverity(user.role)"
+                  ></p-tag>
+                </ng-template>
+              </p-cellEditor>
+            </td>
+            <td>
+              <strong>
+                {{ user.rankUser }}
+              </strong>
+            </td>
+            <td>
+              <p-cellEditor>
+                <ng-template pTemplate="input">
+                  <p-dropdown
+                    [options]="optionActive"
+                    appendTo="body"
+                    [(ngModel)]="user.isActive"
+                    [style]="{ width: '5rem' }"
+                  ></p-dropdown>
+                </ng-template>
+                <ng-template pTemplate="output">
+                  <p-tag
+                    [value]="getActive(user.isActive)"
+                    [severity]="getSeverityActive(user.isActive)"
+                  ></p-tag>
+                </ng-template>
+              </p-cellEditor>
+            </td>
+            <td>
+              {{ user.createDateAt }}
+            </td>
+            <td>
+              {{ user.address }}
+            </td>
+
+            <td class="d-flex">
+              <!-- <button
+                pButton
+                pRipple
+                icon="fal fa-user-edit"
+                class="p-button-rounded rounded-circle p-button-success"
+                (click)="editProduct(user)"
+                style="width: 40px; height: 40px; margin-right: 2px"
+              ></button> -->
+              <button
+                *ngIf="!editing"
+                pButton
+                pRipple
+                type="button"
+                pInitEditableRow
+                icon="fal fa-user-edit"
+                (click)="onRowEditInit(user)"
+                class="p-button-rounded rounded-circle p-button-success me-2"
+                style="width: 40px; height: 40px"
+              ></button>
+              <button
+                *ngIf="editing"
+                pButton
+                pRipple
+                type="button"
+                pSaveEditableRow
+                icon="pi pi-check"
+                (click)="onRowEditSave(user, rowIndex)"
+                class="p-button-rounded p-button-text p-button-success mr-2"
+              ></button>
+              <button
+                *ngIf="editing"
+                pButton
+                pRipple
+                type="button"
+                pCancelEditableRow
+                icon="pi pi-times"
+                (click)="onRowEditCancel(user, rowIndex)"
+                class="p-button-rounded p-button-text p-button-danger"
+              ></button>
+              <button
+                *ngIf="!user.isActive && !editing"
+                pButton
+                pRipple
+                icon="fal fa-user-slash"
+                class="p-button-rounded rounded-circle p-button-warning"
+                (click)="deleteProduct(user)"
+                style="width: 40px; height: 40px"
+              ></button>
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
+  </div>
+</section>

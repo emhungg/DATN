@@ -1,0 +1,169 @@
+<section>
+  <div class="container">
+    <div class="cart">
+      <div class="header">
+        <div class="back">
+          <a href="javascript:window.history.back();">
+            <i class="fal fa-arrow-left"></i>
+            <strong>Quay lại</strong>
+          </a>
+        </div>
+      </div>
+      <!-- cart empty -->
+      <div class="cart-layout" *ngIf="cartItems && cartItems.length == 0">
+        <div class="cart-content">
+          <div class="no-items">
+            <div class="cart-icon">
+              <i class="fal fa-empty-set"></i>
+              <label>Giỏ hàng</label>
+            </div>
+            <div class="img">
+              <img
+                src="https://hoanghamobile.com/Content/web/content-icon/no-item.png"
+              />
+              <p><strong>Hiện chưa có sản phẩm nào trong giỏ hàng</strong></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- ================================== item cart ==================================-->
+      <div
+        class="container block-info mt-3"
+        *ngIf="cartItems && cartItems.length > 0"
+      >
+        <div id="listItemSuperCart">
+          <div
+            class="header-action d-flex align-items-center justify-content-between"
+          >
+            <div class="d-flex align-items-center justify-content-center">
+              <div class="select-product-action custom-control custom-checkbox">
+                <input
+                  type="checkbox"
+                  [(ngModel)]="masterSelected"
+                  name="list_name"
+                  value="m1"
+                  (change)="checkUncheckAll()"
+                />
+                <label class="custom-control-label">&nbsp;Chọn tất cả</label>
+              </div>
+            </div>
+            <div *ngIf="itemSelected">
+              <button
+                class="btn-remove-checked"
+                [disabled]="!itemSelected"
+                (click)="removeItemsInCart()"
+              >
+                <em>Xóa sản phẩm đã chọn</em>
+              </button>
+            </div>
+          </div>
+          <div
+            class="block__product-item__outer"
+            *ngFor="let item of cartItems; let i = index"
+          >
+            <!---->
+            <div class="block__product-item">
+              <div class="checkbox-product">
+                <div
+                  class="select-product-action custom-control custom-checkbox"
+                >
+                  <input
+                    type="checkbox"
+                    [(ngModel)]="item.isSelected"
+                    value="{{ item.productId }}"
+                    (change)="isAllSelected()"
+                  />
+                  <label class="custom-control-label">
+                    <img
+                      [src]="item.imagePath"
+                      width="350"
+                      loading="lazy"
+                      class="product-img"
+                    />
+                  </label>
+                </div>
+              </div>
+              <div class="product-info">
+                <div class="d-flex justify-content-between align-items-start">
+                  <a
+                    routerLink="/product-details/{{ item.productId }}"
+                    class="product-name nav-link"
+                    >{{ item.productName }}</a
+                  >
+                  <button class="remove-item" (click)="removeItem(item)">
+                    <i class="far fa-trash-can"></i>
+                  </button>
+                </div>
+                <div class="d-flex justify-content-between align-items-end">
+                  <div class="block-box-price">
+                    <!---->
+                    <!---->
+                    
+                    <div class="box-info__box-price">
+                      <p class="product__price--show">
+                        {{
+                          item.priceSell > 0
+                            ? (item.priceSell | number)
+                            : (item.price | number)
+                        }}
+                        đ
+                      </p>
+                      <p
+                        class="product__price--through"
+                        *ngIf="item.priceSell > 0"
+                      >
+                        {{ item.price | number }} đ
+                      </p>
+                      <!---->
+                    </div>
+                  </div>
+                  <div class="action d-flex">
+                    <span
+                      class="minus d-flex justify-content-center align-items-center"
+                      (click)="decreaseQuantity(i)"
+                      >-</span
+                    >
+                    <input
+                      type="text"
+                      readonly="readonly"
+                      [value]="item.quantity"
+                    />
+                    <span
+                      class="plus d-flex justify-content-center align-items-center"
+                      (click)="increaseQuantity(i)"
+                      >+</span
+                    >
+                  </div>
+                </div>
+                <!---->
+                <!---->
+              </div>
+              <!---->
+              <!---->
+            </div>
+            <!---->
+            <!---->
+          </div>
+        </div>
+      </div>
+
+      <div *ngIf="cartItems && cartItems.length > 0">
+        <div id="stickyBottomBar">
+          <div class="price-temp">
+            <p>Tạm tính</p>
+            <span>{{ totalPrice | number }}đ</span>
+          </div>
+          <button
+            [disabled]="!itemSelected"
+            class="btn-action"
+            [class]="totalPrice == 0 ? 'disabled' : ''"
+            (click)="orderProduct()"
+          >
+            Đặt ngay ({{countItemCheck}})
+          </button>
+        </div>
+        <div class="clear"></div>
+      </div>
+    </div>
+  </div>
+</section>

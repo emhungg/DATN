@@ -1,0 +1,43 @@
+<!-- Topbar -->
+<nav
+  class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow"
+>
+  <div style="width: 50rem"><app-breadcrumd></app-breadcrumd></div>
+  <div class="dropdown no-arrow ml-auto">
+    <a
+      class="nav-link dropdown-toggle"
+      id="userDropdown"
+      role="button"
+      data-bs-toggle="dropdown"
+      aria-haspopup="true"
+      aria-expanded="false"
+    >
+      <span class="mr-2 d-none d-lg-inline text-gray-600 small">Admin</span>
+      <img
+        class="img-profile rounded-circle"
+        width="30rem"
+        height="30rem"
+        src="https://scontent.fhan2-3.fna.fbcdn.net/v/t39.30808-1/373723962_1452462351984784_5133026789768719606_n.jpg?stp=dst-jpg_p320x320&_nc_cat=102&ccb=1-7&_nc_sid=5740b7&_nc_ohc=tme3J3FJAdQAX_oPPaW&_nc_ht=scontent.fhan2-3.fna&oh=00_AfA5AvEfjs717N_fod_WvnyiFSCa26p4tFYx_yIoErYMXQ&oe=6571E6B5"
+      />
+    </a>
+    <!-- Dropdown - User Information -->
+    <ul
+      class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+      aria-labelledby="userDropdown"
+    >
+      <div class="dropdown-divider"></div>
+      <li>
+        <a
+          class="dropdown-item"
+          role="button"
+          data-toggle="modal"
+          (click)="clickLogout()"
+        >
+          <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+          Logout
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<!-- End of Topbar -->

@@ -1,0 +1,388 @@
+<section>
+  <div class="container">
+    <div class="cart">
+      <div class="header">
+        <div class="back">
+          <a href="javascript:window.history.back();">
+            <i class="fal fa-arrow-left"></i>
+            <strong>Quay lại</strong>
+          </a>
+        </div>
+      </div>
+
+      <!--begin content order -->
+      <div
+        class="container block-info mt-3"
+        *ngIf="checkedList && checkedList.length > 0"
+      >
+        <div id="listItemSuperCart">
+          <div class="cart-layout">
+            <div class="cart-info" id="cartInfo">
+              <div class="cart-items">
+                <div
+                  class="block__product-item__outer"
+                  *ngFor="let item of checkedList"
+                >
+                  <div class="block__product-item">
+                    <div class="checkbox-product">
+                      <div
+                        class="select-product-action custom-control custom-checkbox"
+                      >
+                        <label class="custom-control-label">
+                          <img
+                            [src]="item.imagePath"
+                            loading="lazy"
+                            class="product-img"
+                          />
+                        </label>
+                      </div>
+                    </div>
+                    <div class="product-info">
+                      <div
+                        class="d-flex justify-content-between align-items-start"
+                      >
+                        <a
+                          routerLink="/product-details/{{ item.productId }}"
+                          class="product-name nav-link"
+                          >{{ item.productName }}</a
+                        >
+                      </div>
+                      <div
+                        class="d-flex justify-content-between align-items-end"
+                      >
+                        <div class="block-box-price">
+                          <!---->
+                          <!---->
+
+                          <div class="box-info__box-price">
+                            <p class="product__price--show">
+                              {{
+                                item.priceSell > 0
+                                  ? (item.priceSell | number)
+                                  : (item.price | number)
+                              }}
+                              đ
+                            </p>
+                            <p
+                              class="product__price--through"
+                              *ngIf="item.priceSell > 0"
+                            >
+                              {{ item.price | number }} đ
+                            </p>
+                            <!---->
+                          </div>
+                        </div>
+                        <div class="action d-flex">
+                          Số lượng: {{ item.quantity }}
+                        </div>
+                      </div>
+                      <!---->
+                      <!---->
+                    </div>
+                    <!---->
+                    <!---->
+                  </div>
+                </div>
+              </div>
+
+              <div class="cart-total">
+                <p>
+                  Tổng giá trị:
+                  <strong class="price">{{ totalPrice | number }} ₫</strong>
+                </p>
+                <p>
+                  Tổng số lượng:
+                  <strong class="price">{{ totalQuantity }}</strong>
+                </p>
+                <p>
+                  Cần thanh toán:
+                  <strong class="price text-red"
+                    >{{ totalPrice | number }} ₫</strong
+                  >
+                </p>
+                <p>
+                  <i>{{ totalPriceWords | uppercase }}</i>
+                </p>
+                <button class="next">Tiếp tục</button>
+              </div>
+            </div>
+
+            <div class="cart-form">
+              <form [formGroup]="formOrder">
+                <h3><strong>Thông tin khách hàng</strong></h3>
+                <p class="text-gray">
+                  <i>Bạn cần nhập đầy đủ các trường thông tin có dấu *</i>
+                </p>
+                <div class="row">
+                  <div class="col">
+                    <div class="control">
+                      <input
+                        name="Title"
+                        type="text"
+                        formControlName="userName"
+                        placeholder="Họ và tên *"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col">
+                    <div class="control">
+                      <input
+                        name="Phone"
+                        type="text"
+                        formControlName="phoneNumber"
+                        placeholder="Số điện thoại *"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row shInfo">
+                  <div class="col">
+                    <div class="control">
+                      <input
+                        name="email"
+                        type="email"
+                        formControlName="email"
+                        placeholder="Email"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <span class="group"
+                    ><strong>Hình thức nhận hàng</strong></span
+                  >
+                </div>
+                <div class="row">
+                  <div class="col">
+                    <div
+                      id="payType_1"
+                      class="payment-opt"
+                      [class]="recipt ? 'payment-selected' : ''"
+                    >
+                      <label class="radio-ctn">
+                        <span>Nhận hàng tại nhà</span>
+                        <input
+                          name="receiveType"
+                          type="radio"
+                          (change)="reciptAddess($event)"
+                          formControlName="receiveType"
+                          value="0"
+                          class="cart-paymentTypeId"
+                        />
+                        <span class="checkmark"></span>
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div
+                      id="payType_5"
+                      class="payment-opt"
+                      [class]="!recipt ? 'payment-selected' : ''"
+                    >
+                      <label class="radio-ctn">
+                        <span>Nhận hàng tại cửa hàng</span>
+                        <input
+                          name="receiveType"
+                          type="radio"
+                          (change)="reciptAddess($event)"
+                          class="cart-paymentTypeId"
+                          checked
+                          formControlName="receiveType"
+                          value="1"
+                        />
+                        <span class="checkmark"></span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <!-- nhận hàng tại nhà -->
+                <div id="f_payType_1" *ngIf="recipt">
+                  <div class="row">
+                    <div class="col">
+                      <div class="control">
+                        <select
+                          id="SystemCityID"
+                          name="SystemCityID"
+                          placeholder="Tỉnh/Thành phố *"
+                          (change)="onProvinceChange($event)"
+                        >
+                          <option value="" selected>Tỉnh/Thành phố *</option>
+                          <option
+                            *ngFor="let province of provinces"
+                            [value]="province.code"
+                          >
+                            {{ province.name }}
+                          </option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div class="control">
+                        <select
+                          id="SystemDistrictID"
+                          name="SystemDistrictID"
+                          placeholder="Quận/Huyện *"
+                          (change)="onDistrictChange($event)"
+                        >
+                          <option value="">Quận/Huyện *</option>
+                          <option
+                            *ngFor="let district of districts"
+                            [value]="district.code"
+                          >
+                            {{ district.name }}
+                          </option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row shInfo">
+                    <div class="col">
+                      <div class="control">
+                        <input
+                          id="Address"
+                          name="Address"
+                          type="text"
+                          placeholder="Địa chỉ nhận hàng *"
+                          formControlName="addressReceive"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Nhận hàng tại của hàng -->
+                <div id="f_payType_5" *ngIf="!recipt">
+                  <div class="row">
+                    <span class="group"><strong>Nơi nhận hàng</strong></span>
+                  </div>
+                  <div class="row">
+                    <div class="col">
+                      <div class="control">
+                        <select
+                          id="MKSystemCityID"
+                          name="MKSystemCityID"
+                          placeholder="Tỉnh/Thành phố"
+                          formControlName="province"
+                        >
+                          <option value="">Tỉnh/Thành phố *</option>
+                          <option value="Hà Nội">H&#224; Nội</option>
+                          <option value="Nam Định">Nam Định</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div class="control">
+                        <select
+                          id="SystemMarketID"
+                          name="SystemMarketID"
+                          placeholder="Chọn cửa hàng nhận sản phẩm *"
+                          formControlName="addressReceive"
+                        >
+                          <option value="">Cửa hàng *</option>
+                          <option
+                            value="298 Cầu Diễn, Bắc Từ Liêm, Hà Nội"
+                            *ngIf="formOrder.get('province')?.value == 'Hà Nội'"
+                          >
+                            298 Cầu Diễn, Bắc Từ Liêm, Hà Nội
+                          </option>
+                          <option
+                            value="112 Nguyên Xá, Bắc Từ Liêm, Hà Nội"
+                            *ngIf="formOrder.get('province')?.value == 'Hà Nội'"
+                          >
+                            112 Nguyên Xá, Bắc Từ Liêm, Hà Nội
+                          </option>
+                          <option
+                            value="Xóm 8, Ý Yên, Nam Định"
+                            *ngIf="
+                              formOrder.get('province')?.value == 'Nam Định'
+                            "
+                          >
+                            Xóm 8, Ý Yên, Nam Định
+                          </option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row shInfo">
+                  <div class="col">
+                    <div class="control">
+                      <textarea
+                        name="Note"
+                        placeholder="Ghi chú"
+                        spellcheck="false"
+                        data-minlength="15"
+                        formControlName="note"
+                      ></textarea>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <span class="group"
+                    ><strong>Hình thức thanh toán</strong></span
+                  >
+                </div>
+
+                <div class="d-flex flex-column align-items-start">
+                  <div>
+                    <div id="payType_1">
+                      <label class="radio-ctn">
+                        <span>Thanh toán sau khi nhận hàng</span>
+                        <input
+                          name="methodPayment"
+                          type="radio"
+                          formControlName="methodPayment"
+                          value="0"
+                        />
+                        <span class="checkmark"></span>
+                      </label>
+                    </div>
+                  </div>
+                  <div>
+                    <div id="payType_5">
+                      <label class="radio-ctn">
+                        <span>Thanh toán qua VNPAY</span>
+                        <input
+                          name="methodPayment"
+                          type="radio"
+                          formControlName="methodPayment"
+                          value="1"
+                        />
+                        <span class="checkmark"></span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row shInfo">
+                  <div class="control-button">
+                    <button type="submit" (click)="processedOrder()">
+                      XÁC NHẬN VÀ ĐẶT HÀNG
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- end -->
+    </div>
+  </div>
+</section>
+
+<ngx-spinner
+  bdColor="rgba(51,51,51,0.8)"
+  size="medium"
+  color="#fff"
+  type="ball-scale-multiple"
+>
+  <p style="font-size: 20px; color: white">Vui lòng chờ....</p>
+</ngx-spinner>

@@ -1,0 +1,183 @@
+<div class="containers-home container">
+  <app-banner-slider></app-banner-slider>
+  <!-- suplier -->
+  <section><app-slide-supplier></app-slide-supplier></section>
+  <!-- quick-sales -->
+  <section>
+    <div class="container">
+      <div class="quick-sales">
+        <div class="item">
+          <a routerLink="">
+            <img
+              src="https://cdn.hoanghamobile.com/i/home/Uploads/2023/10/05/galaxy-s20-fe-1.png"
+              title="Samsung Galaxy S20 FE"
+              alt="Samsung Galaxy S20 FE"
+            />
+          </a>
+        </div>
+        <div class="item">
+          <a routerLink="">
+            <img
+              src="https://cdn.hoanghamobile.com/i/home/Uploads/2023/11/11/mac.png"
+              title="MacBook Air M1 8GB/256GB"
+              alt="MacBook Air M1 8GB/256GB"
+            />
+          </a>
+        </div>
+        <div class="item">
+          <a routerLink="">
+            <img
+              src="https://cdn.hoanghamobile.com/i/home/Uploads/2023/10/17/huawei-watch-gt4-1.png"
+              title="Watch GT4"
+              alt="Watch GT4"
+            />
+          </a>
+        </div>
+        <div class="item">
+          <a routerLink="">
+            <img
+              src="https://cdn.hoanghamobile.com/i/home/Uploads/2023/11/09/vivobook-14.png"
+              title="Laptop ASUS Vivobook 14 X1404VA-NK125W"
+              alt="Laptop ASUS Vivobook 14 X1404VA-NK125W"
+            />
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- flash sales -->
+  <section class="fls" id="fls_6" style="display: block">
+    <div class="container">
+      <div class="flash-sales">
+        <div class="header">
+          <h3>F<i class="fa-sharp fa-solid fa-bolt"></i>ASH SALE ONLINE</h3>
+          <ul class="flash-sale-nav">
+            <li>
+              <a
+                class="nav-link"
+                [ngClass]="selectedButton === 'SellTop1' ? 'actived' : ''"
+                role="button"
+                (click)="showContent('SellTop1')"
+                >Điện thoại/Tablet</a
+              >
+            </li>
+            <li>
+              <a
+                class="nav-link"
+                role="button"
+                [ngClass]="selectedButton === 'SellTop2' ? 'actived' : ''"
+                (click)="showContent('SellTop2')"
+                >Laptop/M&#224;n h&#236;nh/Tivi</a
+              >
+            </li>
+            <li>
+              <a
+                class="nav-link"
+                role="button"
+                [ngClass]="selectedButton === 'SellTop3' ? 'actived' : ''"
+                (click)="showContent('SellTop3')"
+                >Đồng hồ/Phụ kiện/kh&#225;c</a
+              >
+            </li>
+          </ul>
+          <!-- <app-countdown-timer></app-countdown-timer> -->
+        </div>
+
+        <div class="content" *ngIf="selectedButton === 'SellTop1'">
+          <app-carousel-product [items]="flashSellDL"></app-carousel-product>
+        </div>
+        <div class="content" *ngIf="selectedButton === 'SellTop2'">
+          <app-carousel-product [items]="flashSelllaptop"></app-carousel-product>
+        </div>
+        <div class="content" *ngIf="selectedButton === 'SellTop3'">
+          <app-carousel-product [items]="flashSellOrther"></app-carousel-product>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ads -->
+  <section>
+    <div class="container">
+      <div class="ads">
+        <a routerLink=""
+          ><img
+            src="https://cdn.hoanghamobile.com/i/home/Uploads/2023/11/01/flip4-s22-ultra-1200x200.png"
+            style="width: 100%"
+        /></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- product apple -->
+  <section>
+    <app-product-list
+      [items]="appleProduct"
+      [title]="titleApple"
+    ></app-product-list>
+  </section>
+
+  <!-- ads -->
+  <section>
+    <div class="container">
+      <div class="ads">
+        <a routerLink=""
+          ><img
+            src="https://cdn.hoanghamobile.com/i/home/Uploads/2023/11/04/m34.jpg"
+            style="width: 100%"
+        /></a>
+      </div>
+    </div>
+  </section>
+  <!-- product hot-->
+  <section>
+    <app-product-list
+      [items]="phonetop"
+      [title]="titleProductHot"
+    ></app-product-list>
+  </section>
+  <!-- ads -->
+  <section>
+    <div class="container">
+      <div class="ads">
+        <a routerLink=""
+          ><img
+            src="	https://cdn.hoanghamobile.com/i/home/Uploads/2023/11/06/1200x200-tuan-le-01.png"
+            style="width: 100%"
+        /></a>
+      </div>
+    </div>
+  </section>
+  <!-- laptop-->
+  <section>
+    <div class="other-link">
+      <a
+        class="nav-link"
+        routerLink="/dien-thoai-di-dong/iphone/iphone-15-series"
+        >ASUS TUF Gaming F15</a
+      >
+      <a
+        class="nav-link"
+        routerLink="/dien-thoai-di-dong/tecno-pova-5-8gb-128gb-chinh-hang"
+        >MSI Modern 14</a
+      >
+      <a
+        class="nav-link"
+        routerLink="/dien-thoai-di-dong/xiaomi/redmi-note-12-series"
+        >MSI Bravo 15</a
+      >
+      <a
+        class="nav-link"
+        routerLink="/dien-thoai-di-dong/samsung/samsung-galaxy-s23"
+        >Lenovo IdeaPad 5</a
+      >
+      <a class="actived nav-link" routerLink="/dien-thoai-di-dong"
+        >Xem tất cả</a
+      >
+    </div>
+    <app-product-list
+      [items]="laptopList"
+      [title]="'LAPTOP NỔI BẬT'"
+    ></app-product-list>
+  </section>
+</div>

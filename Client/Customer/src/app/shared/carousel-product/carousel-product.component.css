@@ -1,0 +1,16 @@
+/* css for title product */
+.truncate {
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.truncate:hover {
+  color: rgb(169, 121, 121);
+}
+
+.red-background {
+  font-weight: bold;
+}

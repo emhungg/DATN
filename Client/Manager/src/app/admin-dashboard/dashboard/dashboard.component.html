@@ -1,0 +1,192 @@
+<div class="container m-5">
+  <!-- Content Row -->
+  <div class="row">
+    <!-- Earnings (Monthly) Card Example -->
+    <div class="col-xl-3 col-md-6 mb-4">
+      <div class="card border-left-primary shadow h-100 py-2">
+        <div class="card-body">
+          <div class="row no-gutters align-items-center">
+            <div class="col mr-2">
+              <div
+                class="text-xs font-weight-bold text-primary text-uppercase mb-1"
+              >
+                Doanh thu năm nay
+              </div>
+              <div class="h5 mb-0 font-weight-bold text-gray-800">
+                {{
+                  dataAPI.revenusThisYear
+                    ? dataAPI.revenusThisYear
+                    : (0 | currency : "VND")
+                }}
+              </div>
+            </div>
+            <div class="col-auto">
+              <i class="fas fa-calendar fa-2x text-gray-300"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Earnings (Monthly) Card Example -->
+    <div class="col-xl-3 col-md-6 mb-4">
+      <div class="card border-left-success shadow h-100 py-2">
+        <div class="card-body">
+          <div class="row no-gutters align-items-center">
+            <div class="col mr-2">
+              <div
+                class="text-xs font-weight-bold text-success text-uppercase mb-1"
+              >
+                Doanh thu trong hôm nay
+              </div>
+              <div class="h5 mb-0 font-weight-bold text-gray-800">
+                {{
+                  dataAPI.revenusThisDay
+                    ? dataAPI.revenusThisDay
+                    : (0 | currency : "VND")
+                }}
+              </div>
+            </div>
+            <div class="col-auto">
+              <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Earnings (Monthly) Card Example -->
+    <div class="col-xl-3 col-md-6 mb-4">
+      <div class="card border-left-info shadow h-100 py-2">
+        <div class="card-body">
+          <div class="row no-gutters align-items-center">
+            <div class="col mr-2">
+              <div
+                class="text-xs font-weight-bold text-info text-uppercase mb-1"
+              >
+                Tổng kho hiện tại
+              </div>
+              <div class="h5 mb-0 font-weight-bold text-gray-800">
+                {{ dataAPI.totalProductQuantity }} sản phẩm
+              </div>
+            </div>
+            <div class="col-auto">
+              <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pending Requests Card Example -->
+    <div class="col-xl-3 col-md-6 mb-4">
+      <div class="card border-left-warning shadow h-100 py-2">
+        <div class="card-body">
+          <div class="row no-gutters align-items-center">
+            <div class="col mr-2">
+              <div
+                class="text-xs font-weight-bold text-warning text-uppercase mb-1"
+              >
+                Đơn hàng trong ngày
+              </div>
+              <div class="h5 mb-0 font-weight-bold text-gray-800">
+                {{ dataAPI.totalOrderQuantity }}
+              </div>
+            </div>
+            <div class="col-auto">
+              <i class="fal fa-2x fa-cart-shopping text-gray-300"></i>
+              <!-- <i class="fas fa-comments fa-2x text-gray-300"></i> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Content Row -->
+  <div class="d-flex">
+    <div class="card-deck" style="width: 50rem">
+      <div class="card mb-3 shadow card-theme">
+        <div
+          class="card-header card-header-theme col-12 d-flex justify-content-between"
+        >
+          <div class="col-8">
+            <h4 style="opacity: 0.5; margin: 10px 0 0 1rem">
+              Thống kê doanh thu
+            </h4>
+          </div>
+          <div class="col-4">
+            <select class="form-select" (change)="changeStatasticToTal($event)">
+              <option *ngFor="let item of monthData" [value]="[item.month]">
+                <p *ngIf="item.month === '0'">Năm {{ thisYear }}</p>
+                <p *ngIf="item.month !== '0'">Tháng {{ item.month }}</p>
+              </option>
+            </select>
+          </div>
+        </div>
+
+        <div class="card-body">
+          <!-- set chart for tổng doanh thu 1 tháng -->
+          <app-line-chart
+            [witdChart]="widthChart"
+            [heightChart]="heightChart"
+            [lineChartData]="lineChartData"
+          ></app-line-chart>
+        </div>
+      </div>
+    </div>
+    <div class="card-deck ms-5" style="width: 28rem">
+      <div class="card mb-3 shadow card-theme">
+        <div class="card-header card-header-theme">
+          <h4 style="opacity: 0.5; margin: 10px 0 0 1rem">
+            Tổng quan khách hàng
+          </h4>
+        </div>
+        <div class="card-body">
+          <!-- pie chart user register and order -->
+          <app-pie-chart
+            [stylePieChart]="{ width: '25rem' }"
+            [pieChartDatasets]="pieChartDatasets"
+            [labelChart]="userOnlineLabel"
+          ></app-pie-chart>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="d-flex justify-content-between">
+    <!-- chart for multi product -->
+    <div class="card-deck w-auto">
+      <div class="card mb-6 shadow card-theme">
+        <div class="card-header card-header-theme">
+          <h4 style="opacity: 0.5; margin: 10px 0 0 1rem">
+            Sản phẩm bán chạy nhất
+          </h4>
+        </div>
+        <div class="">
+          <app-pie-chart
+            [stylePieChart]="{ width: '40rem', height: '500px' }"
+            [pieChartDatasets]="topSellerData"
+            [labelChart]="topSellerlabel"
+          ></app-pie-chart>
+        </div>
+      </div>
+    </div>
+    <!-- san pham ban e -->
+    <div class="card-deck w-auto ml-5">
+      <div class="card mb-6 shadow card-theme">
+        <div class="card-header card-header-theme">
+          <h4 style="opacity: 0.5; margin: 10px 0 0 1rem">
+            Sản phẩm bán ra ít nhất
+          </h4>
+        </div>
+        <div class="">
+          <app-pie-chart
+            [stylePieChart]="{ width: '40rem', height: '500px' }"
+            [pieChartDatasets]="topSellerData"
+            [labelChart]="topSellerlabel"
+          ></app-pie-chart>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

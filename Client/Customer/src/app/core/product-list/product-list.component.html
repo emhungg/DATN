@@ -1,0 +1,108 @@
+<div class="box-home">
+  <div class="header-container">
+    <div class="header">
+      <h4>
+        <a class="nav-link" routerLink="/apple">{{ title }}</a>
+      </h4>
+    </div>
+  </div>
+  <div class="row row-cols-5" *ngIf="items">
+    <ng-container *ngFor="let item of items.slice(0, displayedItems)">
+      <div class="col mb-2">
+        <div
+          class="card d-flex align-items-center pt-2 shadow-sm"
+          style="width: 222.6px"
+        >
+          <div class="d-flex align-items-center item">
+            <a routerLink="/product-details/{{ item.productId }}"
+              ><img
+                [src]="item.images[0].imagePath"
+                alt="Card image cap"
+                style="width: 170px; height: 200px"
+            /></a>
+            <div class="promote">
+              <a
+                class="nav-link"
+                routerLink="/product-details/{{ item.productId }}"
+              >
+                <ul>
+                  <li>
+                    <span class="bag">KM</span> VNPAY - Ưu đ&#227;i tới 300.000đ
+                    khi thanh to&#225;n qua VNPAY.
+                  </li>
+                  <li>
+                    <span class="bag">KM</span> ZaloPay - Ưu đ&#227;i tới
+                    300.000đ khi thanh to&#225;n qua ZaloPay.
+                  </li>
+                  <li>
+                    <span class="bag">KM</span> Home PayLater - Trả g&#243;p qua
+                    Home PayLater giảm tới 1.000.000đ
+                  </li>
+                </ul>
+              </a>
+            </div>
+          </div>
+
+          <div class="d-flex text-center">
+            <a
+              class="nav-link fw-bold m-2 truncate"
+              routerLink="/product-details/{{ item.productId }}"
+              role="button"
+              style="font-size: 13px; width: 205px;"
+              >{{ item.productName }}</a
+            >
+          </div>
+
+          <span class="price">
+            <strong style="font-weight: bold; color: red; font-size: 16px"
+              >{{
+                item.productSell > 0
+                  ? (item.productSell | number)
+                  : (item.productPrice | number) + " "
+              }}&nbsp;₫</strong
+            >
+            &nbsp;&nbsp;
+            <del
+              class="fst-italic"
+              style="font-size: 13px; color: #333333; font-weight: 100"
+              *ngIf="item.productSell > 0"
+              >{{ item.productPrice | number }}&nbsp;₫</del
+            >
+          </span>
+          <div class="d-flex justify-content-end mt-2 me-2 h-auto w-100">
+            <p
+              style="
+                font-size: 12px;
+                opacity: 0.5;
+                font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial,
+                  sans-serif;
+              "
+            >
+              Yêu thích
+            </p>
+            <a
+              role="button"
+              class="nav-link ml-auto"
+              (click)="toggleHeart(item)"
+              ><i
+                class="fal fa-heart heart-icon"
+                [ngClass]="{ 'red-background': item.isLike }"
+                style="font-size: 20px; margin: 0 5px 0 5px; color: red"
+              ></i
+            ></a>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+
+  <div class="more-product text-center mt-3">
+    <a class="nav-link" role="button" (click)="loadMore()">
+      {{
+        remainingItems() > 0
+          ? "Xem thêm " + remainingItems() + " sản phẩm"
+          : "Đã hiển thị hết"
+      }}</a
+    >
+  </div>
+</div>

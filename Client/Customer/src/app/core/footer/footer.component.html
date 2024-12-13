@@ -1,0 +1,290 @@
+<!-- Footer -->
+<footer class="container" *ngIf="!footerHidden.isFooterHidden()">
+  <section>
+    <div class="container">
+      <div class="corevalue">
+        <div class="item">
+          <span class="icon">
+            <i class="fal fa-badge-check"></i>
+          </span>
+          <div class="text">
+            <span>Sản phẩm</span>
+            <strong>CH&#205;NH H&#195;NG</strong>
+          </div>
+        </div>
+        <div class="item">
+          <span class="icon">
+            <i class="fal fa-dolly"></i>
+          </span>
+          <div class="text">
+            <span>Miễn ph&#237; vận chuyển</span>
+            <strong>TO&#192;N QUỐC</strong>
+          </div>
+        </div>
+        <div class="item">
+          <span class="icon">
+            <i class="fal fa-headset"></i>
+          </span>
+          <div class="text">
+            <span>Hotline hỗ trợ</span>
+            <strong>1900.2091</strong>
+          </div>
+        </div>
+        <div class="item">
+          <span class="icon">
+            <i class="fal fa-arrows-rotate"></i>
+          </span>
+          <div class="text">
+            <span>Thủ tục đổi trả</span>
+            <strong>DỄ D&#192;NG</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="subscript">
+        <div class="icon-text">
+          <img src="https://hoanghamobile.com/Content/web/img/sub-logo.png" />
+          <div class="text">
+            <h4>Đăng ký nhận tin</h4>
+            <p>
+              Đăng ký để nhận những chương trình khuyến mại hot nhất của Hoàng
+              Hà Mobile
+            </p>
+          </div>
+        </div>
+        <div class="form">
+          <form>
+            <div class="input">
+              <input
+                type="email"
+                [(ngModel)]="email"
+                id="email"
+                name="email"
+                placeholder="Nhập E-mail của bạn"
+              />
+            </div>
+            <button type="submit" (click)="sendMailAdsToUserRegister()">
+              <i class="fal fa-paper-plane"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="bg">
+      <div class="col-content">
+        <div class="link-content">
+          <h4>
+            <a style="font-size: 15px; font-weight: bold">Hỗ Trợ - Dịch Vụ</a>
+          </h4>
+          <ul>
+            <li>
+              <a routerLink="/mua-hang-tra-gop">Mua h&#224;ng trả g&#243;p</a>
+            </li>
+            <li>
+              <a routerLink="/huong-dan-dat-hang"
+                >Hướng dẫn đặt h&#224;ng v&#224; thanh to&#225;n</a
+              >
+            </li>
+            <li><a routerLink="/order/check">Tra cứu đơn h&#224;ng</a></li>
+            <li>
+              <a routerLink="/chinh-sach-bao-hanh"
+                >Ch&#237;nh s&#225;ch bảo h&#224;nh</a
+              >
+            </li>
+            <li>
+              <a routerLink="/dat-hang/bao-hanh-mo-rong"
+                >Phạm vi, điều khoản g&#243;i bảo h&#224;nh mở rộng</a
+              >
+            </li>
+            <li>
+              <a routerLink="/chinh-sach-bao-mat"
+                >Ch&#237;nh s&#225;ch bảo mật</a
+              >
+            </li>
+            <li>
+              <a routerLink="/chinh-sach-giai-quyet-khieu-nai"
+                >Ch&#237;nh s&#225;ch giải quyết khiếu nại</a
+              >
+            </li>
+            <li>
+              <a routerLink="/dieu-khoan-mua-ban-hang-hoa"
+                >Điều khoản mua b&#225;n h&#224;ng h&#243;a</a
+              >
+            </li>
+            <li>
+              <a routerLink="/cau-hoi-thuong-gap">C&#226;u hỏi thường gặp</a>
+            </li>
+          </ul>
+        </div>
+        <div class="link-content">
+          <h4>
+            <a style="font-size: 15px; font-weight: bold"
+              >Th&#244;ng Tin Li&#234;n Hệ</a
+            >
+          </h4>
+          <ul>
+            <li>
+              <a routerLink="/mua-hang-online">B&#225;n h&#224;ng Online</a>
+            </li>
+            <li>
+              <a routerLink="/cham-soc-khach-hang"
+                >Chăm s&#243;c kh&#225;ch h&#224;ng</a
+              >
+            </li>
+            <li>
+              <a
+                routerLink="/tin-tuc/hoang-ha-care-dich-vu-sua-chua-dien-thoai-may-tinh-bang-voi-gia-tot-nhat-thi-truong"
+                >Dịch vụ sửa chữa HoangHaMobile</a
+              >
+            </li>
+            <li>
+              <a routerLink="/hop-tac-kinh-doanh">Hợp t&#225;c kinh doanh</a>
+            </li>
+            <li>
+              <a routerLink="/trung-tam-bao-hanh">Tra cứu bảo h&#224;nh</a>
+            </li>
+          </ul>
+        </div>
+        <div class="link-content">
+          <h4>
+            <a
+              routerLink="/he-thong-cua-hang"
+              style="font-size: 15px; font-weight: bold"
+              >Hệ thống si&#234;u thị tr&#234;n to&#224;n quốc</a
+            >
+          </h4>
+          <ul>
+            <li>
+              <a routerLink="/he-thong-cua-hang"
+                >Danh s&#225;ch si&#234;u thị tr&#234;n to&#224;n quốc</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 style="font-weight: bold">Tổng đài</h4>
+          <a class="hotline" href="tel:1900.2091">1900.2091</a>
+        </div>
+
+        <div>
+          <h4 style="font-size: 15px; font-weight: bold; color: #ffffff">
+            Thanh toán miễn phí
+          </h4>
+          <!-- <ul class="list-logo">
+            <li>
+              <img src="/Content/web/img/logo-visa.png" />
+              <img src="/Content/web/img/logo-master.png" />
+            </li>
+            <li>
+              <img src="/Content/web/img/logo-jcb.png" />
+              <img src="/Content/web/img/logo-samsungpay.png" />
+            </li>
+            <li>
+              <img src="/Content/web/img/logo-atm.png" />
+              <img src="/Content/web/img/logo-vnpay.png" />
+            </li>
+          </ul> -->
+        </div>
+
+        <div>
+          <h4 style="font-size: 15px; font-weight: bold; color: #ffffff">
+            Hình thức vận chuyển
+          </h4>
+          <!-- <ul class="list-logo">
+            <li>
+              <img src="/Content/web/img/nhattin.jpg" />
+              <img src="/Content/web/img/vnpost.jpg" />
+            </li>
+          </ul>
+          <div class="mg-top20">
+            <a routerLink="http://online.gov.vn/Home/WebDetails/28738" target="_blank"
+              ><img src="/Content/web/img/logo-bct.png"
+            /></a>
+          </div> -->
+        </div>
+      </div>
+
+      <div class="info">
+        <p>
+          © 2023. TRƯỜNG ĐẠI HỌC CÔNG NGHIỆP HÀ NỘI. MST: 0101498046. (Đăng
+          k&#253; lần đầu: 10 tháng 8, 1898, Đăng k&#253; thay đổi ng&#224;y
+          02/12/2005)
+        </p>
+        <p>
+          <strong
+            >Thành lập theo Quyết định số 315/2005/QĐ-TTg ngày 02/12/2005 của
+            Thủ tướng Chính phủ</strong
+          >
+        </p>
+        <p>
+          Địa chỉ:Số 298 đường Cầu Diễn, quận Bắc Từ Liêm, Hà Nội. Điện thoại:
+          1900.2091. Chịu trách nhiệm nội dung:
+          <strong>HoangHaMobile</strong>.
+        </p>
+      </div>
+    </div>
+
+    <div id="navSocial" *ngIf="isHiddenSocial">
+      <div class="social">
+        <ul>
+          <li>
+            <a role="button"
+              title="close"
+              target="_blank"
+              class="black"
+              (click)="hidenSocialMedia()"
+              ><span><i class="fal fa-xmark"></i></span
+            ></a>
+          </li>
+          <li>
+            <a
+              routerLink=""
+              title="Facebook HoangHaMobile"
+              target="_blank"
+              class="blue"
+              ><span><i class="fa-brands fa-facebook-f"></i></span
+            ></a>
+          </li>
+          <li>
+            <a
+              routerLink=""
+              title="Youtube HoangHaMobile Channel"
+              target="_blank"
+              class="red"
+              ><span><i class="fa-brands fa-youtube"></i></span
+            ></a>
+          </li>
+          <li>
+            <a
+              routerLink=""
+              title="HoangHaMobile Instagram"
+              target="_blank"
+              class="rainbow"
+              ><span><i class="fa-brands fa-instagram"></i></span
+            ></a>
+          </li>
+          <li>
+            <a routerLink="" title="Tiktok" target="_blank" class="black"
+              ><span><i class="fa-brands fa-tiktok"></i></span
+            ></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div id="backtoTop">
+      <a id="top" routerLink="javascript:;">
+        <i class="icon-left"></i>
+      </a>
+    </div>
+  </div>
+</footer>
+

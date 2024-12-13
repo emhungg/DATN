@@ -1,0 +1,21 @@
+<ng-container *ngIf="$any(bcService.breadcrumbs$ | async) as breadcrumbs">
+  <section class="py-1 mb-1">
+    <div class="container">
+      <div class="d-flex row align-items-center">
+        <div class="col-9">
+          <h3>{{ breadcrumbs[breadcrumbs.length - 1].label | titlecase }}</h3>
+        </div>
+        <div class="col-9" style="opacity: 0.4">
+          <xng-breadcrumb [separator]="iconTemplate">
+            <ng-container *xngBreadcrumbItem="let breadcrumb">
+              {{ breadcrumb | titlecase }}
+            </ng-container>
+          </xng-breadcrumb>
+          <ng-template #iconTemplate>
+            <i class="fas fa-angle-right"></i>
+          </ng-template>
+        </div>
+      </div>
+    </div>
+  </section>
+</ng-container>

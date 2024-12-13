@@ -1,0 +1,26 @@
+.container{
+    max-width: 1200px;
+}
+
+.header {
+  margin: 40px 0 25px 0;
+}
+
+.header .back a {
+  display: flex;
+  line-height: 30px;
+  font-size: 15px;
+  max-width: 100px;
+  text-decoration: none;
+}
+
+.header .back i {
+  margin-right: 5px;
+  font-size: 30px;
+  color: black;
+}
+
+.header .back strong {
+  color: #555;
+  white-space: nowrap;
+}

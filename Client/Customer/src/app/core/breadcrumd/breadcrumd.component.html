@@ -1,0 +1,29 @@
+<div *ngIf="!headerService.isHeaderHidden()">
+
+<ng-container *ngIf="$any(bcService.breadcrumbs$ | async) as breadcrumbs">
+  <section
+    *ngIf="breadcrumbs[breadcrumbs.length - 1].label !== 'Trang chủ'"
+    class="py-3"
+    style="width: 100%"
+  >
+    <div class="container">
+      <!-- <div class="d-flex row">
+        <div class="col-9">
+          <h1>{{ breadcrumbs[0].label | titlecase }}</h1>
+        </div> -->
+      <div class="col-9">
+        <xng-breadcrumb [separator]="iconTemplate" style="color: #009981;">
+          <ng-container *xngBreadcrumbItem="let breadcrumb; let info = info">
+            <mat-icon *ngIf="info">{{ info }}</mat-icon
+            >{{ breadcrumb | titlecase }}
+          </ng-container>
+        </xng-breadcrumb>
+        <ng-template #iconTemplate>
+          <i class="fas fa-angle-right"></i>
+        </ng-template>
+      </div>
+    </div>
+    <!-- </div> -->
+  </section>
+</ng-container>
+</div>

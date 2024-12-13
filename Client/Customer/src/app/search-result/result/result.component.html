@@ -1,0 +1,79 @@
+<div class="container containers-product" *ngIf="!notFoundProduct">
+  <section>
+    <div class="container">
+      <div class="product-filters2">
+        <div class="left">
+          <strong class="label">Lọc danh sách:</strong>
+          <div class="right">
+            <div class="facet">
+              <label> Sắp xếp <i class="fal fa-angle-down"></i> </label>
+              <div class="sub">
+                <ul>
+                  <li>
+                    <a
+                      routerLink="/dien-thoai?=filters=%7b%22do-phan-giai%22%3a%22C%e1%ba%a3m+bi%e1%ba%bfn+%c4%91%e1%bb%99+s%c3%a2u+tr%c6%b0%e1%bb%9dng+%e1%ba%a3nh+2MP+f%2f2.4%22%2c%22price%22%3a%226t-8t%22%2c%22sort%22%3a%224%22%7d&amp;search=true&amp;filters=%7b%22sort%22%3a%2212%22%7d&amp;search=true"
+                    >
+                      <span class="fa fa-angle-right"></span>
+                      Mặc định
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      routerLink="/dien-thoai?=filters=%7b%22do-phan-giai%22%3a%22C%e1%ba%a3m+bi%e1%ba%bfn+%c4%91%e1%bb%99+s%c3%a2u+tr%c6%b0%e1%bb%9dng+%e1%ba%a3nh+2MP+f%2f2.4%22%2c%22price%22%3a%226t-8t%22%2c%22sort%22%3a%224%22%7d&amp;search=true&amp;filters=%7b%22sort%22%3a%221%22%7d&amp;search=true"
+                    >
+                      <span class="fa fa-angle-right"></span>
+                      Sản phẩm mới - cũ
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      routerLink="/dien-thoai?=filters=%7b%22do-phan-giai%22%3a%22C%e1%ba%a3m+bi%e1%ba%bfn+%c4%91%e1%bb%99+s%c3%a2u+tr%c6%b0%e1%bb%9dng+%e1%ba%a3nh+2MP+f%2f2.4%22%2c%22price%22%3a%226t-8t%22%2c%22sort%22%3a%224%22%7d&amp;search=true&amp;filters=%7b%22sort%22%3a%222%22%7d&amp;search=true"
+                    >
+                      <span class="fa fa-angle-right"></span>
+                      Giá thấp đến cao
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      routerLink="/dien-thoai?=filters=%7b%22do-phan-giai%22%3a%22C%e1%ba%a3m+bi%e1%ba%bfn+%c4%91%e1%bb%99+s%c3%a2u+tr%c6%b0%e1%bb%9dng+%e1%ba%a3nh+2MP+f%2f2.4%22%2c%22price%22%3a%226t-8t%22%2c%22sort%22%3a%224%22%7d&amp;search=true&amp;filters=%7b%22sort%22%3a%223%22%7d&amp;search=true"
+                    >
+                      <span class="fa fa-angle-right"></span>
+                      Giá cao đến thấp
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      routerLink="/dien-thoai?=filters=%7b%22do-phan-giai%22%3a%22C%e1%ba%a3m+bi%e1%ba%bfn+%c4%91%e1%bb%99+s%c3%a2u+tr%c6%b0%e1%bb%9dng+%e1%ba%a3nh+2MP+f%2f2.4%22%2c%22price%22%3a%226t-8t%22%2c%22sort%22%3a%224%22%7d&amp;search=true&amp;filters=%7b%22sort%22%3a%224%22%7d&amp;search=true"
+                    >
+                      <span class="fa fa-angle-right"></span>
+                      Mới cập nhật
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <app-product-list
+    [items]="allItems"
+    [title]="titleCategory"
+  ></app-product-list>
+</div>
+<div
+  class="d-flex align-items-center justify-content-center vh-100"
+  *ngIf="notFoundProduct"
+>
+  <div class="text-center">
+    <h1 class="display-1 fw-bold">Không tìm thấy kết quả cho: {{ keyFind }}</h1>
+    <p class="fs-3">
+      <span class="text-danger">Opps!</span> Không tìm thấy sản phẩm.
+    </p>
+    <p class="lead">
+      Có vẻ sản phẩm bạn đang cần tìm không có trong kho của chúng tôi.
+    </p>
+    <a routerLink="" class="">Về trang chủ.</a>
+  </div>
+</div>

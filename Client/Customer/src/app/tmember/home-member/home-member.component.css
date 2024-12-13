@@ -1,0 +1,23 @@
+.icon-and-text {
+  display: flex;
+  align-items: center; /* Căn giữa theo chiều dọc */
+}
+
+.icon-and-text mat-icon {
+  margin-right: 5px; /* Khoảng cách 5px giữa biểu tượng và văn bản */
+}
+
+/* CSS để chuyển màu của thẻ 'a' sang đỏ khi hover */
+a.nav-link:hover {
+  color: red;
+  cursor: pointer;
+}
+
+/* css for click */
+.selected-item {
+  background-color: #ffe6e6; /* Màu nền đỏ nhạt */
+  border: 2px solid #ff0000; /* Border màu đỏ đậm */
+  color: #ff0000; /* Màu chữ đỏ */
+  border-radius: 10px;
+  width: 15rem;
+}

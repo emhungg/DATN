@@ -1,0 +1,6 @@
+UserID,UserFullName,Email,Password,PhoneNumber,Gender,Role,IsActive
+truongnx,truong nguyen,xuantruong0944@gmail.com,b891956c6ac0a3091d261de1923a60ef5729a1282bbd0ddd2af7b2b7329075b9,1234567809,0,0,TRUE
+truongnx1,123,xuantruong0944@gmail.com,b891956c6ac0a3091d261de1923a60ef5729a1282bbd0ddd2af7b2b7329075b9,1234567789,0,0,TRUE
+tre,truobg,xuantruong0944@gmail.com,b891956c6ac0a3091d261de1923a60ef5729a1282bbd0ddd2af7b2b7329075b9,1234567890,0,0,FALSE
+truongnx12,nguyen xuan truong,xuantruong0944@gmail.com,b891956c6ac0a3091d261de1923a60ef5729a1282bbd0ddd2af7b2b7329075b9,326054827,1,0,FALSE
+truongnxx,truong,xuantruong0944@gmail.com,b891956c6ac0a3091d261de1923a60ef5729a1282bbd0ddd2af7b2b7329075b9,1243456789,0,0,TRUE

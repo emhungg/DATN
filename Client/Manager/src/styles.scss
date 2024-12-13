@@ -1,0 +1,49 @@
+/* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap");
+
+@import "@angular/material/prebuilt-themes/indigo-pink.css";
+@import "primeng/resources/themes/lara-light-blue/theme.css";
+@import "primeng/resources/primeng.css";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  position: relative;
+  font-family: "Roboto", sans-serif;
+}
+
+.p-datatable-table {
+  font-size: 14px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  .p-datatable-tbody {
+    tr {
+      flex-wrap: nowrap;
+      width: 100%;
+      border-top: 0.1px solid gray;
+    }
+
+    td {
+      padding: 5px 08px 5px 0;
+      .p-tag {
+        font-size: 10px;
+        padding: 5px;
+      }
+    }
+  }
+}
+
+.p-paginator {
+  margin: 10px;
+  .p-paginator-rpp-options {
+    align-items: center;
+  }
+
+  .p-dropdown-items {
+    padding: 0px;
+    align-items: center;
+  }
+}

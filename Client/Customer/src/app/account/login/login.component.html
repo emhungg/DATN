@@ -1,0 +1,67 @@
+<div class="container">
+  <div class="login-form">
+    <div class="login-bg">
+      <img src="https://hoanghamobile.com/Content/web/img/login-bg.png" />
+    </div>
+    <div class="form">
+      <h1>Đăng nhập</h1>
+
+      <div class="internal">
+        <form [formGroup]="loginFormGroup">
+          <div class="row">
+            <div class="label">Tài khoản</div>
+            <div class="input">
+              <input type="text" name="UserName" id="UserName" formControlName="userID"/>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="label">Mật khẩu</div>
+            <div class="input">
+              <input type="password" name="password" id="password" formControlName="password"/>
+            </div>
+          </div>
+
+          <div class="form-check mb-0">
+            <input
+              class="form-check-input me-2"
+              type="checkbox"
+              value=""
+              id="form2Example3"
+            />
+            <label class="form-check-label" for="form2Example3">
+              Remember me
+            </label>
+          </div>
+
+          <div class="row">
+            <div class="button-group">
+              <button class="btn btn-submit" type="submit" (click)="isProcessedLogin()">ĐĂNG NHẬP</button>
+              <a
+                class="btn btn-link nav-link"
+                role="button"
+                (click)="register()"
+                >ĐĂNG KÝ</a
+              >
+            </div>
+          </div>
+
+          <div class="row">
+            <p class="forgotpass">
+              <a class="nav-link" role="button">Quên mật khẩu?</a>
+            </p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ngx-spinner
+  bdColor="rgba(51,51,51,0.8)"
+  size="medium"
+  color="#fff"
+  type="ball-scale-multiple"
+>
+  <p style="font-size: 20px; color: white">{{ loadingTitle }}</p>
+</ngx-spinner>

@@ -1,0 +1,189 @@
+<div class="container">
+  <div class="login-form">
+    <div class="login-bg">
+      <img src="https://hoanghamobile.com/Content/web/img/login-bg.png" />
+    </div>
+
+    <div class="form">
+      <div class="center" style="text-align: center">
+        <h2>Đăng ký tài khoản</h2>
+        <p>Chú ý các nội dung có dấu * bạn cần phải nhập</p>
+      </div>
+      <div id="registerForm" class="hh-form">
+        <form [formGroup]="registerFormGroup">
+          <div class="form-controls">
+            <label>Tài khoản:</label>
+            <div class="controls">
+              <input
+                type="text"
+                name="UserName"
+                id="UserName"
+                placeholder="Tài khoản *"
+                data-required="1"
+                formControlName="userID"
+              />
+            </div>
+          </div>
+
+          <div class="form-controls">
+            <label>Họ tên:</label>
+            <div class="controls">
+              <input
+                type="text"
+                name="Title"
+                id="Title"
+                placeholder="Họ tên *"
+                data-required="1"
+                formControlName="userFullName"
+              />
+            </div>
+          </div>
+
+          <div class="form-controls">
+            <label>Mật khẩu:</label>
+            <div class="controls">
+              <!-- <input
+                type="text"
+                name="PasswordHash"
+                id="PasswordHash"
+                placeholder="Mật khẩu *"
+                data-required="1"
+              /> -->
+              <input
+                matInput
+                formControlName="password"
+                placeholder="Enter your password"
+                [type]="hide ? 'password' : 'text'"
+              />
+              <button
+                mat-icon-button
+                matSuffix
+                (click)="hide = !hide"
+                [attr.aria-label]="'Hide password'"
+                [attr.aria-pressed]="hide"
+              >
+                <mat-icon>{{
+                  hide ? "visibility_off" : "visibility"
+                }}</mat-icon>
+              </button>
+            </div>
+          </div>
+
+          <div class="form-controls">
+            <label>Email:</label>
+            <div class="controls">
+              <input
+                type="text"
+                name="Email"
+                id="Email"
+                placeholder="Email *"
+                data-required="1"
+                formControlName="email"
+              />
+            </div>
+          </div>
+
+          <div class="form-controls">
+            <label>Giới tính:</label>
+            <div class="controls">
+              <mat-radio-group aria-label="gender" formControlName="gender">
+                <mat-radio-button value="0" [checked]="true"
+                  >Nam</mat-radio-button
+                >
+                <mat-radio-button value="1">Nữ</mat-radio-button>
+              </mat-radio-group>
+            </div>
+          </div>
+
+          <div class="form-controls">
+            <label>Điện thoại:</label>
+            <div class="controls">
+              <input
+                type="tel"
+                name="PhoneNumber"
+                id="PhoneNumber"
+                placeholder="Điện thoại *"
+                data-required="1"
+                formControlName="phoneNumber"
+              />
+            </div>
+          </div>
+          <div formGroupName="address" class="form-group mb-3">
+            <div class="form-controls">
+              <label>Địa chỉ:</label>
+              <div class="controls">
+                <input
+                  type="text"
+                  name="Address"
+                  id="Address"
+                  placeholder="Địa chỉ *"
+                  data-required="1"
+                  formControlName="descriptions"
+                />
+              </div>
+            </div>
+
+            <div class="form-controls">
+              <label>Tỉnh/Thành phố:</label>
+              <div class="controls">
+                <select
+                  formControlName="provinceCode"
+                  (change)="onProvinceChange()"
+                >
+                  <option value="" selected>Chọn tỉnh/thành phố*</option>
+                  <option
+                    *ngFor="let province of provinces"
+                    [value]="province.code"
+                  >
+                    {{ province.name }}
+                  </option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-controls">
+              <label>Quận/Huyện:</label>
+              <div class="controls">
+                <select
+                  formControlName="districtCode"
+                  (change)="onDistrictChange()"
+                >
+                  <option value="">Chọn quận/Huyện *</option>
+                  <option
+                    *ngFor="let district of districts"
+                    [value]="district.code"
+                  >
+                    {{ district.name }}
+                  </option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-controls">
+              <label>Quận/Huyện:</label>
+              <div class="controls">
+                <select
+                  data-required="1"
+                  formControlName="wardCode"
+                >
+                  <option value="">Chọn xã/phường *</option>
+                  <option *ngFor="let ward of wards" [value]="ward.code">
+                    {{ ward.name }}
+                  </option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-controls">
+            <div class="controls submit-controls">
+              <button type="submit" (click)="processedRegister()">
+                ĐĂNG KÝ TÀI KHOẢN
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
