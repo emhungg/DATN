@@ -207,6 +207,7 @@ header .heading .order-tools .check-order a:hover {
   background: red;
 }
 
+
 header .heading .order-tools .cart a,
 header .heading .order-tools .cart a:link,
 header .heading .order-tools .cart a:visited {
@@ -242,8 +243,9 @@ header .heading .order-tools .cart a label span {
 
 header .heading .order-tools .cart a label i {
   color: #ff6801;
-  font-size: 8px;
+  font-size: 25px;
   margin-top: 19px;
+  margin-right:2px;
 }
 
 header nav {
@@ -284,6 +286,7 @@ header nav ul.root li a .icon {
   font-size: 26px;
   margin: 0 auto;
 }
+
 
 header nav ul.root li a span {
   display: block;
