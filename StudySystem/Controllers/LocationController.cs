@@ -1,10 +1,4 @@
-﻿// <copyright file="LocationController.cs" ownedby="Xuan Truong">
-//  Copyright (c) XuanTruong. All rights reserved.
-//  FileType: Visual CSharp source file
-//  Created On: 18/10/2023
-//  Last Modified On: 18/10/2023
-//  Description: LocationController.cs
-// </copyright>
+﻿
 
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;

@@ -1,10 +1,4 @@
-﻿// <copyright file="PdfGeneratorController.cs" ownedby="Hung">
-//  Copyright (c) Hung. All rights reserved.
-//  FileType: Visual CSharp source file
-//  Created On: 29/09/2023
-//  Last Modified On: 29/09/2023
-//  Description: PdfGeneratorController.cs
-// </copyright>
+﻿
 
 using Microsoft.AspNetCore.Mvc;
 using StudySystem.Data.Models.Response;

@@ -1,11 +1,4 @@
-﻿// <copyright file="SupplierController.cs" ownedby="Xuan Truong">
-//  Copyright (c) XuanTruong. All rights reserved.
-//  FileType: Visual CSharp source file
-//  Created On: 29/10/2023
-//  Last Modified On: 29/10/2023
-//  Description: SupplierController.cs
-// </copyright>
-
+﻿
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using StudySystem.Application.Service.Interfaces;

@@ -1,10 +1,4 @@
-﻿// <copyright file="AuthorizeCheckOperationFilter.cs" ownedby="Dang Vanh">
-//  Copyright (c) DangVanh. All rights reserved.
-//  FileType: Visual CSharp source file
-//  Created On: 29/09/2023
-//  Last Modified On: 29/09/2023
-//  Description: AuthorizeCheckOperationFilter.cs
-// </copyright>
+﻿
 
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.OpenApi.Models;

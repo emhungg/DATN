@@ -1,11 +1,4 @@
-﻿// <copyright file="CartsController.cs" ownedby="Xuan Truong">
-//  Copyright (c) XuanTruong. All rights reserved.
-//  FileType: Visual CSharp source file
-//  Created On: 29/09/2023
-//  Last Modified On: 29/09/2023
-//  Description: CartsController.cs
-// </copyright>
-
+﻿
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;

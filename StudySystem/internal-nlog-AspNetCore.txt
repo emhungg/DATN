@@ -7388,3 +7388,10 @@
 2024-12-19 16:53:11.4676 Info Validating config: TargetNames=lifetimeConsole, ownFile-web, ConfigItems=35, FilePath=D:\ĐỒ ÁN TỐT NGHIỆP\DATN-main\StudySystem\bin\Debug\net6.0\NLog.config
 2024-12-19 16:53:11.4862 Info Configuration initialized.
 2024-12-19 16:53:11.8994 Info Validating config: TargetNames=lifetimeConsole, ownFile-web, ConfigItems=35, FilePath=D:\ĐỒ ÁN TỐT NGHIỆP\DATN-main\StudySystem\bin\Debug\net6.0\NLog.config
+2024-12-19 19:05:25.2810 Info Registered target NLog.Targets.FileTarget(Name=ownFile-web)
+2024-12-19 19:05:25.2810 Info Registered target NLog.Targets.ConsoleTarget(Name=lifetimeConsole)
+2024-12-19 19:05:25.2997 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Target 'allfile' not found for logging rule: *.
+2024-12-19 19:05:25.3091 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.4.2092. Product version: 5.2.4+5ed75b125a691ce9f01e64641f1a79f438385847. GlobalAssemblyCache: False
+2024-12-19 19:05:25.3267 Info Validating config: TargetNames=lifetimeConsole, ownFile-web, ConfigItems=35, FilePath=D:\ĐỒ ÁN TỐT NGHIỆP\DATN-main\StudySystem\bin\Debug\net6.0\NLog.config
+2024-12-19 19:05:25.3403 Info Configuration initialized.
+2024-12-19 19:05:25.8041 Info Validating config: TargetNames=lifetimeConsole, ownFile-web, ConfigItems=35, FilePath=D:\ĐỒ ÁN TỐT NGHIỆP\DATN-main\StudySystem\bin\Debug\net6.0\NLog.config

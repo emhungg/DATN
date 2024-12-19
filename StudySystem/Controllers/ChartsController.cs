@@ -1,10 +1,4 @@
-﻿// <copyright file="ChartsController.cs" ownedby="Xuan Truong">
-//  Copyright (c) XuanTruong. All rights reserved.
-//  FileType: Visual CSharp source file
-//  Created On: 20/12/2023
-//  Last Modified On: 20/12/2023
-//  Description: ChartsController.cs
-// </copyright>
+﻿
 
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
