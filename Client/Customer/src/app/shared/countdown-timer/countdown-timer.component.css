@@ -1,0 +1,42 @@
+.count-down-timer {
+    box-shadow: 2px 6px 9px 2px rgb(0 0 0 / 20%);
+    text-align: center;
+    background-color: #313b3f;
+    width: 278px;
+    margin: 20px 0 0;
+    color: #d9a74a;
+    border-radius: 6px;
+    font-family: sans-serif;
+  }
+  
+  .count-down-timer .wrapper .description,
+  .count-down-timer .wrapper .times {
+    display: grid;
+    grid-template-columns: repeat(4, calc(25% - 8px));
+    grid-column-gap: 10px;
+  }
+  
+  .count-down-timer .wrapper .description > p {
+    margin: 0;
+    font: normal 14px sans-serif;
+  }
+  
+  .count-down-timer .wrapper .times p {
+    letter-spacing: -5px;
+    position: relative;
+    margin: 0;
+    font: normal 40px courier, sans-serif;
+  }
+  
+  .count-down-timer .wrapper .times p::ng-deep img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30px;
+    display: block;
+    height: 30px;
+  }
+  
+
+  

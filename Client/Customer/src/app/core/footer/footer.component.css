@@ -1,0 +1,278 @@
+footer {
+  max-width: 1200px;
+}
+/* css for corevalue */
+section .corevalue {
+  display: flex;
+  padding: 10px 60px;
+  margin: 20px 0;
+}
+
+section .corevalue .item {
+  width: 25%;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+section .corevalue .item {
+  display: flex;
+}
+
+section .corevalue .item .icon {
+  font-size: 60px;
+  margin-right: 10px;
+  color: #00917a;
+}
+
+section .corevalue .item .text {
+  text-align: left;
+  padding-bottom: 15px;
+}
+
+section .corevalue .item .text span {
+  display: block;
+  font-size: 13px;
+}
+
+section .corevalue .item .text strong {
+  display: block;
+  text-transform: uppercase;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+/* css for subscript */
+section .subscript {
+  padding: 10px 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+section .subscript .icon-text {
+  display: flex;
+  margin-right: 30px;
+}
+
+section .subscript .icon-text img {
+  margin-right: 30px;
+}
+
+section .subscript .icon-text .text {
+  text-align: center;
+  padding-top: 12px;
+}
+
+section .subscript .icon-text .text h4 {
+  font-weight: bold;
+  font-size: 18px;
+  margin-bottom: 0;
+}
+
+section .subscript .icon-text .text p {
+  margin-top: 5px;
+  font-size: 13px;
+}
+
+section .subscript .form form {
+  display: flex;
+}
+
+section .subscript .form .input {
+  background: #e6e6e6 0% 0% no-repeat padding-box;
+
+  width: 300px;
+  border-radius: 17px;
+}
+
+section .subscript .form .input input {
+  padding: 15px 10px;
+  background: none;
+  border: none;
+  outline: none;
+  width: 100%;
+}
+
+section .subscript .form button {
+  background: #00483d;
+  color: #fff;
+  border-radius: 17px;
+  width: 75px;
+  text-align: center;
+  font-size: 30px;
+  border: none;
+  padding: 3px 0;
+  margin-left: -35px;
+}
+
+section .subscript .form button:hover {
+  background: #009981;
+}
+
+/* css footer */
+footer ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+footer .bg {
+  background: #00483d;
+  border-radius: 11px;
+  padding: 10px 20px 10px 20px;
+  color: #fff;
+}
+
+footer .bg .col-content {
+  display: flex;
+}
+
+footer .bg .col-content > div {
+  flex-direction: column;
+  width: 16.6666%;
+}
+
+footer .bg .col-content h4 {
+  font-size: 15px;
+  margin: 10px 0 6px 0;
+}
+
+footer .bg ul li {
+  margin-bottom: 3px;
+}
+
+footer .bg a,
+footer .bg a:link,
+footer .bg a:visited {
+  text-decoration: none;
+  color: #dddddd;
+  font-size: 13px;
+}
+
+footer .bg a:hover {
+  color: #fff;
+}
+
+footer .bg ul.list-logo li img {
+  margin-right: 3px;
+}
+
+footer .bg .hotline {
+  display: inline-block;
+  padding: 6px 10px;
+  background: #fff;
+  border-radius: 4px;
+  color: #00483d;
+}
+
+footer .bg a.hotline,
+footer .bg a.hotline:link,
+footer .bg a.hotline:visited {
+  color: #00483d;
+  font: Bold 18px/18px -apple-system, BlinkMacSystemFont, "Segoe UI";
+}
+
+footer .info {
+  padding-top: 30px;
+  text-align: center;
+}
+
+footer .info p {
+  margin: 0 0 5px 0;
+  font-size: 9pt;
+}
+
+/* media */
+#navSocial {
+  margin-left: -70px;
+}
+.social {
+  background: #f5f5f5 0% 0% no-repeat;
+  box-shadow: 0 4px 6px #00000029;
+  border-radius: 30px;
+  display: inline-block;
+  padding: 2px;
+  position: fixed;
+  top: 45%;
+}
+
+.social ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.social ul li {
+  padding-bottom: 6px;
+}
+
+.social ul li:last-child {
+  padding: 0;
+}
+
+.social ul li a {
+  display: block;
+  width: 40px;
+  text-align: center;
+  font-size: 24px;
+  padding: 6px 0 6px 0;
+  border-radius: 30px;
+}
+
+.social ul li a.black {
+  border: 2px solid #000;
+  color: #000;
+}
+
+.social ul li a.blue {
+  border: 2px solid #3c5a99;
+  color: #3c5a99;
+}
+
+.social ul li a.red {
+  border: 2px solid #f00;
+  color: #f00;
+}
+
+.social ul li a.rainbow {
+  display: block;
+  padding: 2px;
+  background: linear-gradient(
+      50deg,
+      #fbe18a 0%,
+      #fcbb45 21%,
+      #f75274 38%,
+      #d53692 52%,
+      #8f39ce 74%,
+      #ad63a0 100%
+    )
+    0% 0% no-repeat;
+  border-radius: 30px;
+  width: 40px;
+  font-size: 26px;
+}
+
+.social ul li a.rainbow span {
+  background: #fff;
+  border-radius: 30px;
+  display: block;
+  padding: 4px 0 2px 0;
+  display: block;
+}
+
+.social ul li a.rainbow span i {
+  background: transparent
+    linear-gradient(
+      50deg,
+      #fbe18a 0%,
+      #fcbb45 21%,
+      #f75274 38%,
+      #d53692 52%,
+      #8f39ce 74%,
+      #ad63a0 100%
+    )
+    0% 0% no-repeat;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

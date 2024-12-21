@@ -1,0 +1,149 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="container card">
+        <div class="row card-body" *ngIf="userData">
+          <div class="col-12 text-center">
+            <img
+              src="/assets/img/logo-TDT-PhotoRoom.png-PhotoRoom.png"
+              alt="Image"
+              class="img-fluid"
+              style="height: 60px"
+            />
+          </div>
+          <div class="col-12 text-center">
+            <h1>Xin chào</h1>
+            <h2 class="text-danger">{{userData.userFullName ?? ''}}</h2>
+          </div>
+          <div class="col-12 text-center mt-4">
+            <div class="row">
+              <div class="col-4" style="height: 150px">
+                <div class="col-12 text-center">
+                  <h3>Ngày tham gia</h3>
+                </div>
+                <div class="col-12 text-center">
+                  <img
+                    src="/assets/icon/calender.png"
+                    alt=""
+                    style="height: 50px"
+                  />
+                </div>
+                <div class="col-12 text-center">
+                  <h2 color="red">{{userData.joinDateAt}}</h2>
+                </div>
+              </div>
+              <div class="col-4" style="height: 50px">
+                <div class="col-12 text-center">
+                  <h3>Điểm tích lũy</h3>
+                </div>
+                <div class="col-12 text-center">
+                  <img
+                    src="/assets/icon/dollars.png"
+                    alt=""
+                    style="height: 50px"
+                  />
+                </div>
+                <div class="col-12 text-center">
+                  <h2 color="red">{{userData.priceBought | number}} VND</h2>
+                </div>
+              </div>
+              <div class="col-4" style="height: 50px">
+                <div class="col-12 text-center">
+                  <h3>Hạng thành viên</h3>
+                </div>
+                <div class="col-12 text-center">
+                  <img
+                    src="/assets/icon/rank.png"
+                    alt=""
+                    style="height: 50px"
+                  />
+                </div>
+                <div class="col-12 text-center">
+                  <h2 color="red">{{userData.rankUser}}</h2>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container" *ngIf="userData">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card custom-card" style="background-color: #fef5f0">
+        <div class="card-body">
+          <div
+            style="height: 260px"
+            class="d-flex flex-column align-items-center justify-content-center"
+          >
+            <div class="custom-icon">
+              <img src="https://cellphones.com.vn/smember/_nuxt/img/gift-box(1)1.ad696df.png" alt="">
+            </div>
+            <div><h4 class="mt-2 custom-text">Ưu đãi của bạn</h4></div>
+            <div><p class="text-muted">0 ưu đãi</p></div>
+
+            <div>
+              <a routerLink="/tmenber/gift" class="btn custom-button"
+                >Xem chi tiết</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card custom-card" style="background-color: #f1f8fe">
+        <div class="card-body">
+          <div
+            style="height: 260px"
+            class="d-flex flex-column align-items-center justify-content-center"
+          >
+            <div class="custom-icon">
+              <img src="https://cdn2.cellphones.com.vn/x,webp,q100/media/wysiwyg/Shipper2.png" style="width: 65px; height: 65px;" alt="">
+            </div>
+            <div><h4 class="mt-2 custom-text">Đơn hàng của bạn</h4></div>
+            <div><p class="text-muted">{{userData.countOrderItem}} đơn hàng</p></div>
+
+            <div>
+              <a routerLink="/tmember/history-order" class="btn custom-button"
+                >Xem chi tiết</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card custom-card" style="background-color: #edf1fd">
+        <div class="card-body">
+          <div
+            style="height: 260px"
+            class="d-flex flex-column align-items-center justify-content-center"
+          >
+            <div class="custom-icon">
+              <img src="https://cellphones.com.vn/smember/_nuxt/img/crown.d2de999.png" alt="">
+            </div>
+            <div><h4 class="mt-2 custom-text">Hạng thành viên</h4></div>
+            <div><p class="text-muted">Bạn là {{userData.rankUser}}</p></div>
+
+            <div>
+              <a routerLink="/tmenber/gift" class="btn custom-button"
+                >Xem chi tiết</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<ngx-spinner
+  bdColor="rgba(51,51,51,0.8)"
+  size="medium"
+  color="#fff"
+  type="ball-scale-multiple"
+>
+  <p style="font-size: 20px; color: white">{{loadingTitle}}</p>
+</ngx-spinner>

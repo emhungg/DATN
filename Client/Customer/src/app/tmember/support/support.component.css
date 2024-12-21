@@ -1,0 +1,21 @@
+.child {
+    border: 1px solid #000;
+    border-radius: 10px;
+    height: 80px;
+    margin: 5px;
+  }
+
+  .icon {
+    width: 62px;
+    height: 60px;
+    margin-right: 10px;
+    margin-left: 10px;
+  }
+
+  .text {
+    font-size: 16px;
+  }
+
+  .price {
+    color: red;
+  }

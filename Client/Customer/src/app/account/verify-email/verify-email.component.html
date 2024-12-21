@@ -1,0 +1,95 @@
+<div
+  class="container height-100 d-flex justify-content-center align-items-center"
+>
+  <div class="position-relative">
+    <div class="card p-2 text-center">
+      <h6>
+        Please enter the one time code <br />
+        to verify your account
+      </h6>
+      <div><span>A code has been sent to</span> <small>your mail</small></div>
+      <form [formGroup]="verificationForm">
+        <div
+          id="otp"
+          class="inputs d-flex flex-row justify-content-center mt-2"
+        >
+          <input
+            class="m-2 text-center form-control rounded"
+            type="text"
+            id="first"
+            maxlength="1"
+            formControlName="v1"
+            (input)="onInput(1)"
+            #inputField
+          />
+          <input
+            class="m-2 text-center form-control rounded"
+            type="text"
+            id="second"
+            maxlength="1"
+            formControlName="v2"
+            (input)="onInput(2)"
+            #inputField
+          />
+          <input
+            class="m-2 text-center form-control rounded"
+            type="text"
+            id="third"
+            formControlName="v3"
+            maxlength="1"
+            (input)="onInput(3)"
+            #inputField
+          />
+          <input
+            class="m-2 text-center form-control rounded"
+            type="text"
+            id="fourth"
+            maxlength="1"
+            formControlName="v4"
+            (input)="onInput(4)"
+            #inputField
+          />
+          <input
+            class="m-2 text-center form-control rounded"
+            type="text"
+            id="fifth"
+            maxlength="1"
+            formControlName="v5"
+            (input)="onInput(5)"
+            #inputField
+          />
+          <input
+            class="m-2 text-center form-control rounded"
+            type="text"
+            id="sixth"
+            maxlength="1"
+            formControlName="v6"
+            (input)="onInput(6)"
+            #inputField
+          />
+        </div>
+        <div class="mt-4">
+          <button
+            class="btn btn-danger px-4 validate"
+            (click)="processValidate()"
+          >
+            Validate
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <div class="card-2">
+      <div class="content d-flex justify-content-center align-items-center">
+        <span>Didn't get the code</span>
+        <button
+          class="buttenSendCode"
+          (click)="sendCode()"
+          [disabled]="counting"
+        >
+          {{ buttonText }}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,60 @@
+<section class="gradient-custom">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+        <div class="card bg-dark text-white" style="border-radius: 1rem">
+          <div class="card-body p-5 text-center">
+            <div class="mb-md-5 mt-md-4 pb-5">
+              <h2 class="fw-bold mb-2 text-uppercase">ADMIN</h2>
+              <p class="text-white-50 mb-5">
+                Đăng nhập tài khoản dành cho người quản trị!
+              </p>
+              <form [formGroup]="loginFormGroup">
+                <div class="form-outline form-white mb-4">
+                  <input
+                    type="text"
+                    class="form-control form-control-lg"
+                    formControlName="userID"
+                    required
+                  />
+                  <label class="form-label">Tài khoản</label>
+                </div>
+
+                <div class="form-outline form-white mb-4">
+                  <input
+                    type="password"
+                    id="typePasswordX"
+                    class="form-control form-control-lg"
+                    formControlName="password"
+                    required
+                  />
+                  <label class="form-label" for="typePasswordX">Mật khẩu</label>
+                </div>
+
+                <p class="small mb-5 pb-lg-2">
+                  <a class="text-white-50" href="#!">Forgot password?</a>
+                </p>
+
+                <button
+                  class="btn btn-outline-light btn-lg px-5"
+                  type="submit"
+                  (click)="isProcessedLogin()"
+                >
+                  Đăng nhập
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<ngx-spinner
+  bdColor="rgba(51,51,51,0.8)"
+  size="medium"
+  color="#fff"
+  type="ball-scale-multiple"
+>
+  <p style="font-size: 20px; color: white">{{ loadingTitle }}</p>
+</ngx-spinner>

@@ -1,0 +1,115 @@
+/* css login form */
+.login-form {
+  margin: 30px 0;
+  display: flex;
+  background: #fff;
+  border-radius: 11px;
+}
+
+.login-form .login-bg {
+  background: #fbe9e7;
+  padding: 40px;
+  border-radius: 10px 0 0 11px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.login-form .login-bg img {
+  height: 356px;
+  max-width: 310px;
+}
+
+.login-form .form {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 20px 50px;
+  width: 35rem;
+}
+
+.login-form .form .row {
+  margin-bottom: 15px;
+}
+
+.login-form .form .row .input {
+  display: flex;
+}
+
+.login-form .form .row .label {
+  margin-bottom: 5px;
+  font-weight: bold;
+  font-size: 13px;
+}
+
+.login-form .form .row input {
+  background: #e5e5e5;
+  border-radius: 4px;
+  padding: 10px;
+  border: none;
+  width: 100%;
+}
+
+.login-form .form .button-group {
+  display: flex;
+  justify-content: space-around;
+}
+
+.login-form .form .button-group button,
+.login-form .form .button-group .btn {
+  margin: 0 20px;
+  border: 0;
+  font-weight: bold;
+  border-radius: 4px;
+  flex-grow: 1;
+  display: block;
+  padding: 10px;
+  text-align: center;
+  text-transform: uppercase;
+  border: 2px solid #00483d;
+  color: #222;
+}
+
+.login-form .form .button-group button:first-child,
+.login-form .form .button-group .btn:first-child {
+  margin-left: 0;
+}
+
+.login-form .form .button-group button:last-child,
+.login-form .form .button-group .btn:last-child {
+  margin: 0;
+}
+
+.login-form .form .button-group .btn-submit {
+  background: transparent linear-gradient(180deg, #00917a 0%, #00483d 100%) 0%
+    0% no-repeat padding-box;
+  box-shadow: 0 4px 6px #00000029;
+  border-radius: 3px;
+  color: #fff;
+  border: none;
+  padding: 12px;
+}
+
+.login-form .form .button-group .btn:hover {
+  color: #00917a;
+}
+
+.login-form .form .button-group .btn-submit:hover {
+  background: transparent linear-gradient(180deg, #00483d 0%, #00917a 100%) 0%
+    0% no-repeat padding-box;
+  color: #fff;
+}
+
+.login-form .form .forgotpass {
+  text-align: right;
+  font-weight: bold;
+}
+
+.login-form .form .forgotpass a {
+  color: #222;
+}
+
+.login-form .form .forgotpass a:hover {
+  color: #00483d;
+}

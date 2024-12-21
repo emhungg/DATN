@@ -1,0 +1,119 @@
+/* css header title */
+.box-home {
+  margin: 20px 0;
+}
+
+.header {
+  background: #009981;
+  margin-bottom: 20px;
+  display: inline-block;
+  height: 30px;
+  overflow: hidden;
+}
+
+.header:after {
+  content: " ";
+  border-top: 40px solid #00483d;
+  border-left: 30px solid #009981;
+  margin-left: 40px;
+}
+
+.header h4 {
+  padding: 5px 60px 6px 35px;
+  margin: 0 0 0 60px;
+  background: #00483d;
+  color: #fff;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+.header h4,
+.header h4 a,
+.header h4 a:link,
+.header h4 a:visited {
+  color: #fff;
+}
+
+.header h4 a:hover {
+  color: #009981;
+}
+/* css like */
+.red-background {
+  font-weight: bold;
+}
+/* css for title product */
+.truncate {
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.truncate:hover {
+  color: rgb(169, 121, 121);
+}
+
+/* css more product */
+.more-product a {
+  margin: 30px auto 20px auto;
+  padding: 6px 50px;
+  display: inline-block;
+  background: #fff 0% 0% no-repeat padding-box;
+  box-shadow: 0 4px 6px #00000029;
+  border: 1px solid #004b3f;
+  border-radius: 4px;
+  color: #004b3f;
+  font-weight: bold;
+}
+.more-product a:hover {
+  background-image: linear-gradient(#00917a, #00483d);
+  color: #fff;
+}
+
+/* css prom0te */
+.item .promote {
+  border-radius: 5px;
+  background-image: linear-gradient(#00917a, #079780);
+  padding: 2px;
+  box-shadow: 0 4px 6px #00000029;
+  margin: 0 10px 0 -10px;
+  position: absolute;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s, visibility 0.2s;
+  color: #333;
+}
+
+.item .promote a {
+  color: #222;
+}
+
+.item .promote ul {
+  list-style: none;
+  background: #fff;
+  border-radius: 4px;
+  margin: 0;
+  padding: 10px 10px 5px 10px;
+  text-align: left;
+}
+
+.item .promote ul li {
+  padding-bottom: 5px;
+  font-size: 10px;
+}
+.item:hover .promote {
+  display: block;
+  visibility: visible;
+  opacity: 0.9;
+  animation: fade 1s;
+}
+.item .bag {
+  display: inline-block;
+  background: #f7941e 0% 0% no-repeat padding-box;
+  box-shadow: 0 4px 6px #00000029;
+  border-radius: 3px;
+  padding: 3px 5px;
+  color: #fff;
+  font-size: 11px;
+}

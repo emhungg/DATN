@@ -1,0 +1,113 @@
+<div class="container d-flex justify-content-between m-5">
+  <div class="d-flex mx-5">
+    <ul class="list-group list-group-flush">
+      <li
+        class="list-group-item"
+        routerLinkActive="selected-item"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
+        <a routerLink="/tmember/home" class="nav-link">
+          <div class="icon-and-text">
+            <mat-icon>home</mat-icon>
+            <div>Trang chủ</div>
+          </div>
+        </a>
+      </li>
+      <li
+        class="list-group-item"
+        routerLinkActive="selected-item"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
+        <a routerLink="/tmember/history-order" class="nav-link">
+          <div class="icon-and-text">
+            <mat-icon>history</mat-icon>
+            <div>Lịch sử mua hàng</div>
+          </div>
+        </a>
+      </li>
+      <!-- <li
+        class="list-group-item"
+        routerLinkActive="selected-item"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
+        <a routerLink="/tmember" class="nav-link">
+          <div class="icon-and-text">
+            <span class="material-symbols-outlined"> verified_user </span>
+            <div>Tra cứu bảo hành</div>
+          </div>
+        </a>
+      </li>
+      <li
+        class="list-group-item"
+        routerLinkActive="selected-item"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
+        <a routerLink="/tmember" class="nav-link">
+          <div class="icon-and-text">
+            <mat-icon>card_giftcard</mat-icon>
+            <div>Ưu đãi của bạn</div>
+          </div>
+        </a>
+      </li>
+      <li
+        class="list-group-item"
+        routerLinkActive="selected-item"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
+        <a routerLink="/tmember" class="nav-link">
+          <div class="icon-and-text">
+            <span class="material-symbols-outlined"> military_tech </span>
+            <div>Hạng thành viên</div>
+          </div>
+        </a>
+      </li> -->
+      <li
+        class="list-group-item"
+        routerLinkActive="selected-item"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
+        <a routerLink="/tmember/account/user-info" class="nav-link">
+          <div class="icon-and-text">
+            <span class="material-symbols-outlined"> manage_accounts </span>
+            <div>Tài khoản của bạn</div>
+          </div>
+        </a>
+      </li>
+      <li
+        class="list-group-item"
+        routerLinkActive="selected-item"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
+        <a routerLink="/tmember/account/support" class="nav-link">
+          <div class="icon-and-text">
+            <span class="material-symbols-outlined"> support_agent </span>
+            <div>Hỗ trợ</div>
+          </div>
+        </a>
+      </li>
+      <li
+        class="list-group-item"
+        routerLinkActive="selected-item"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
+        <a routerLink="/tmember/account/feedback" class="nav-link">
+          <div class="icon-and-text">
+            <span class="material-symbols-outlined"> rate_review </span>
+            <div>Góp ý - Phản hồi</div>
+          </div>
+        </a>
+      </li>
+      <li class="list-group-item">
+        <a (click)="doLogout()" class="nav-link">
+          <div class="icon-and-text">
+            <mat-icon>logout</mat-icon>
+            <div>Thoát tài khoản</div>
+          </div>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div style="flex: 1">
+    <router-outlet></router-outlet>
+  </div>
+</div>

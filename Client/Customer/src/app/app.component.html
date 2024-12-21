@@ -1,0 +1,15 @@
+<!-- <ngx-spinner type="ball-scale-multiple"></ngx-spinner> -->
+<!-- <ngx-spinner
+  bdColor="rgba(0, 0, 0, 1)"
+  template="<img src='https://media.giphy.com/media/o8igknyuKs6aY/giphy.gif' />"
+>
+</ngx-spinner> -->
+<ng-container>
+  <app-header></app-header>
+</ng-container>
+<app-breadcrumd></app-breadcrumd>
+<router-outlet></router-outlet>
+<button *ngIf="isShow" (click)="gotoTop()" class="button-scroll btn btn-outline-success">👆</button>
+<ng-container>
+  <app-footer></app-footer>
+</ng-container>

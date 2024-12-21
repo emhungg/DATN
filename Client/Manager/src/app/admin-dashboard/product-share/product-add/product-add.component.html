@@ -1,0 +1,362 @@
+<div class="container">
+  <h1 mat-dialog-title>{{ "Thêm sản phẩm mới" | uppercase }}</h1>
+
+  <section>
+    <div class="container mt-5">
+      <form [formGroup]="formCreateNew">
+        <div class="form-group mb-3">
+          <label for="productName">Tên sản phẩm:</label>
+          <input
+            required
+            formControlName="productName"
+            type="text"
+            class="form-control"
+            id="productName"
+            placeholder="Nhập tên sản phẩm"
+          />
+        </div>
+        <div class="form-group mb-3">
+          <label for="price">Giá:</label>
+          <p *ngIf="formCreateNew.get('price').value < 0">
+            <mat-error>Giá sản phẩm phải lới hơn 0</mat-error>
+          </p>
+          <input
+            required
+            formControlName="price"
+            type="number"
+            class="form-control"
+            id="price"
+            placeholder="Nhập giá"
+          />
+        </div>
+        <div class="form-group mb-3">
+          <label for="discountPrice"
+            >Giá khuyến mãi:
+            <p *ngIf="formCreateNew.get('priceSell').value < 0">
+              <mat-error>Giá sản phẩm phải lới hơn 0</mat-error>
+            </p></label
+          >
+          <input
+            required
+            formControlName="priceSell"
+            type="number"
+            class="form-control"
+            id="discountPrice"
+            placeholder="Nhập giá khuyến mãi"
+          />
+        </div>
+        <div class="form-group mb-3">
+          <label for="description">Mô tả:</label>
+          <angular-editor
+            [config]="config"
+            id="editor1"
+            formControlName="description"
+          ></angular-editor>
+        </div>
+        <div class="form-group mb-3">
+          <label for="quantity"
+            >Số lượng:
+            <p *ngIf="formCreateNew.get('productQuantity').value < 0">
+              <mat-error>Số lượng sản phẩm phải lới hơn 0</mat-error>
+            </p></label
+          >
+          <input
+            required
+            formControlName="productQuantity"
+            type="number"
+            class="form-control"
+            id="quantity"
+            placeholder="Nhập số lượng"
+          />
+        </div>
+
+        <!-- Datepicker -->
+        <div class="form-group mb-3 d-flex">
+          <label style="width: 130px">Ngày sản xuất:</label>
+          <mat-form-field>
+            <input
+              formControlName="productionDate"
+              matInput
+              [matDatepicker]="picker"
+              (change)="onMyDateChange($event)"
+              value="{{ actualDateFormGroup | date : 'yyyy-MM-dd' }}"
+            />
+
+            <mat-datepicker-toggle
+              matIconSuffix
+              [for]="picker"
+            ></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+        </div>
+
+        <div class="d-flex form-group mb-3 form-inline">
+          <mat-radio-group formControlName="productStatus">
+            <mat-label>Tình trạng: &nbsp;</mat-label>
+            <mat-radio-button value="0">Mới</mat-radio-button>
+            <mat-radio-button value="1">Cũ</mat-radio-button>
+          </mat-radio-group>
+        </div>
+
+        <div class="form-group mb-3">
+          <label for="productType">Loại sản phẩm:</label>
+          <select
+            class="form-select"
+            aria-label="Default select example"
+            formControlName="productCategoryId"
+          >
+            <option value="" selected>Chọn loại sản phẩm:</option>
+            <option value="lap-top">Laptop</option>
+            <option value="pc">PC</option>
+            <option value="dien-thoai">Điện thoại</option>
+            <option value="tablet">Tablet</option>
+            <option value="smart-tv">Smart TV</option>
+            <option value="dong-ho">Đồng hồ</option>
+            <option value="am-thanh">Âm thanh</option>
+            <option value="phu-kien">Phụ kiện</option>
+            <option value="smart-home">Smart home</option>
+            <option value="do-choi-cn">Đồ chơi công nghệ</option>
+            <option value="man-hinh">Màn hình</option>
+          </select>
+        </div>
+        <!-- brand phone -->
+        <div
+          class="form-group mb-3"
+          *ngIf="
+            formCreateNew.get('productCategoryId').value !== 'lap-top' &&
+            formCreateNew.get('productCategoryId').value !== 'pc'
+          "
+        >
+          <label for="productType">Hãng sản xuất:</label>
+          <select
+            class="form-select"
+            id="productType"
+            formControlName="productBrand"
+          >
+            <option *ngFor="let item of DATA_BRAND_DT" [value]="item.value">
+              {{ item.label }}
+            </option>
+          </select>
+        </div>
+        <!-- brand laptop -->
+        <div
+          class="form-group mb-3"
+          *ngIf="
+            formCreateNew.get('productCategoryId').value === 'lap-top' ||
+            formCreateNew.get('productCategoryId').value === 'pc'
+          "
+        >
+          <label for="productType">Hãng sản xuất:</label>
+          <select
+            class="form-select"
+            id="productType"
+            formControlName="productBrand"
+          >
+            <option *ngFor="let item of DATA_BRAND_LT" [value]="item.value">
+              {{ item.label }}
+            </option>
+          </select>
+        </div>
+        <!-- chip apple -->
+        <div
+          class="form-group mb-3"
+          *ngIf="
+            formCreateNew.get('productBrand').value === 'apple' &&
+            (formCreateNew.get('productCategoryId').value === 'dien-thoai' ||
+              formCreateNew.get('productCategoryId').value === 'tablet')
+          "
+        >
+          <label for="productType">Chip:</label>
+          <select
+            class="form-select"
+            aria-label="Default select example"
+            formControlName="chipProduct"
+          >
+            <option
+              *ngFor="let item of DATA_CHIP_APPLE"
+              [value]="item.label"
+              selected
+            >
+              {{ item.label }}
+            </option>
+          </select>
+        </div>
+        <!-- chip orther -->
+        <div
+          class="form-group mb-3"
+          *ngIf="
+            formCreateNew.get('productBrand').value !== 'apple' &&
+            (formCreateNew.get('productCategoryId').value === 'smart-tv' ||
+              formCreateNew.get('productCategoryId').value === 'tablet' ||
+              formCreateNew.get('productCategoryId').value === 'dien-thoai')
+          "
+        >
+          <label for="productType">Chip:</label>
+          <select
+            class="form-select"
+            aria-label="Default select example"
+            formControlName="chipProduct"
+          >
+            <option *ngFor="let item of DATA_CHIP" [value]="item" selected>
+              {{ item }}
+            </option>
+          </select>
+        </div>
+        <!-- chip laptop -->
+        <div
+          class="form-group mb-3"
+          *ngIf="
+            formCreateNew.get('productCategoryId').value === 'lap-top' ||
+            formCreateNew.get('productCategoryId').value === 'pc'
+          "
+        >
+          <label for="productType">CPU:</label>
+          <select
+            class="form-select"
+            aria-label="Default select example"
+            formControlName="chipProduct"
+          >
+            <option
+              *ngFor="let item of DATA_CHIP_LAPTOP"
+              [value]="item.label"
+              selected
+            >
+              {{ item.label }}
+            </option>
+          </select>
+        </div>
+        <!-- ram product -->
+        <div
+          class="form-group mb-3"
+          *ngIf="
+            formCreateNew.get('productCategoryId').value === 'lap-top' ||
+            formCreateNew.get('productCategoryId').value === 'pc' ||
+            formCreateNew.get('productCategoryId').value === 'dien-thoai' ||
+            formCreateNew.get('productCategoryId').value === 'tablet' ||
+            formCreateNew.get('productCategoryId').value === 'smart-tv' ||
+            formCreateNew.get('productCategoryId').value === 'smart-home'
+          "
+        >
+          <label for="productType">RAM:</label>
+          <select
+            class="form-select"
+            aria-label="Default select example"
+            formControlName="ramProduct"
+          >
+            <option *ngFor="let item of DATA_RAM" [value]="item.value" selected>
+              {{ item.label }}
+            </option>
+          </select>
+        </div>
+        <!-- ram product -->
+        <div
+          class="form-group mb-3"
+          *ngIf="
+            formCreateNew.get('productCategoryId').value === 'lap-top' ||
+            formCreateNew.get('productCategoryId').value === 'pc' ||
+            formCreateNew.get('productCategoryId').value === 'dien-thoai' ||
+            formCreateNew.get('productCategoryId').value === 'tablet' ||
+            formCreateNew.get('productCategoryId').value === 'smart-tv' ||
+            formCreateNew.get('productCategoryId').value === 'smart-home'
+          "
+        >
+          <label for="productType">Bộ nhớ:</label>
+          <select
+            class="form-select"
+            aria-label="Default select example"
+            formControlName="romProduct"
+          >
+            <option *ngFor="let item of rom" [value]="item.value" selected>
+              {{ item.label }}
+            </option>
+          </select>
+        </div>
+        <!-- screen product -->
+        <div
+          class="form-group mb-3"
+          *ngIf="
+            formCreateNew.get('productCategoryId').value === 'lap-top' ||
+            formCreateNew.get('productCategoryId').value === 'pc' ||
+            formCreateNew.get('productCategoryId').value === 'dien-thoai' ||
+            formCreateNew.get('productCategoryId').value === 'tablet' ||
+            formCreateNew.get('productCategoryId').value === 'smart-tv' ||
+            formCreateNew.get('productCategoryId').value === 'smart-home'
+          "
+        >
+          <label for="productType">Công nghệ màn hình:</label>
+          <select
+            class="form-select"
+            aria-label="Default select example"
+            formControlName="screenProduct"
+          >
+            <option
+              *ngFor="let item of dataScreen"
+              [value]="item.label"
+              selected
+            >
+              {{ item.label }}
+            </option>
+          </select>
+        </div>
+        <!-- select img -->
+        <div class="form-group mb-3">
+          <label for="productImages">Chọn ảnh sản phẩm:&nbsp;</label>
+          <input
+            type="file"
+            class="form-control-file"
+            id="productImages"
+            (change)="onImagesSelected($event)"
+            multiple
+          />
+        </div>
+
+        <!-- Hiển thị danh sách các hình ảnh đã chọn -->
+        <div *ngIf="selectedImages.length == 0">
+          <strong><mat-error>Chọn ảnh sản phẩm</mat-error></strong>
+        </div>
+        <div *ngIf="selectedImages.length > 0">
+          <h5>Danh sách ảnh đã chọn:</h5>
+          <div
+            *ngFor="let image of selectedImages; let i = index"
+            class="mb-2 position-relative"
+          >
+            <img
+              [src]="image"
+              alt="Selected Image"
+              class="img-fluid mr-2"
+              style="max-width: 100px"
+            />
+            <button
+              class="btn btn-danger btn-sm delete-button"
+              (click)="removeImage(i)"
+            >
+              <i class="fa-solid fa-xmark"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="d-flex mb-3 justify-content-end">
+          <div class="pe-3">
+            <button
+              type="submit"
+              class="btn btn-primary"
+              (click)="closePopUp()"
+            >
+              Hủy
+            </button>
+          </div>
+
+          <div class="pb-3">
+            <button
+              type="submit"
+              class="btn btn-primary"
+              (click)="processCreate()"
+            >
+              Thêm mới
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </section>
+</div>

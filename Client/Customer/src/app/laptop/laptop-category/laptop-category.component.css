@@ -1,0 +1,133 @@
+/*  */
+.containers-product {
+    max-width: 1200px;
+  }
+  /* css filter */
+  .product-filters2 {
+    background: #fff 0% 0% no-repeat padding-box;
+    box-shadow: 0 3px 6px #00000029;
+    border-radius: 14px;
+    margin: 20px 0;
+  }
+  
+  .product-filters2 {
+    position: relative;
+    display: flex;
+  }
+  
+  .product-filters2 .left,
+  .product-filters2 .right {
+    display: flex;
+    justify-items: right;
+    justify-content: right;
+    width: 100px;
+    flex-grow: 0;
+    flex-shrink: 0;
+  }
+  
+  .product-filters2 .left {
+    flex-basis: auto;
+    flex-shrink: 1;
+    flex-grow: 2;
+  }
+  
+  .product-filters2 strong.label {
+    display: inline-block;
+    color: #00917a;
+    padding: 15px 20px;
+  }
+  
+  .product-filters2 .facet {
+    display: block;
+    padding: 15px 10px;
+    margin-right: 20px;
+  }
+  
+  .product-filters2 .facet .sub {
+    display: none;
+    position: absolute;
+    width: 100%;
+    z-index: 123;
+    left: 0;
+    top: 40px;
+    padding-top: 10px;
+  }
+  
+  .product-filters2 .facet:hover .sub {
+    display: block;
+  }
+  
+  .product-filters2 .facet label a,
+  .product-filters2 .facet label span {
+    color: #00483d;
+    font-size: 13px;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    text-decoration: none;
+  }
+  
+  .product-filters2 .facet:hover label a,
+  .product-filters2 .facet:hover label span {
+    color: #fd475a;
+  }
+  
+  .product-filters2 .facet .sub ul {
+    background: #fff;
+    box-shadow: 0 3px 6px #00000029;
+    border-radius: 14px;
+    margin: 0;
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+    padding: 5px 10px;
+    grid-column-gap: 10px;
+  }
+  
+  .product-filters2 .facet .sub ul li {
+    list-style: none;
+    padding: 5px;
+  }
+  
+  .product-filters2 .facet label {
+    display: flex;
+  }
+  
+  .product-filters2 .facet label span,
+  .product-filters2 .facet label strong {
+    display: block;
+    margin-right: 5px;
+  }
+  
+  .product-filters2 .facet i.icon-rightar::before {
+    font-size: 8px;
+    transform: rotate(90deg);
+  }
+  
+  .product-filters2 .facet i.icon-minutes {
+    font-size: 8px;
+    background: #fd475a;
+    line-height: 16px;
+    width: 16px;
+    height: 16px;
+    display: block;
+    border-radius: 20px;
+    text-align: center;
+    color: #fff;
+    margin-right: 5px;
+  }
+  
+  .product-filters2 .facet ul li a {
+    display: flex;
+    color: #00483d;
+    font-size: 13px;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    text-decoration: none;
+  }
+  
+  .product-filters2 .facet ul li a:hover {
+      color: red;
+    }
+  
+  .product-filters2 .facet ul li i.total {
+    color: #888;
+    margin-left: 4px;
+  }
+  

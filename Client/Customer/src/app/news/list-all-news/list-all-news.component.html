@@ -1,0 +1,77 @@
+<div class="container">
+  <div class="d-flex">
+    <div class="d-flex flex-column mt-5 w-100">
+      <div class="elementor-element elementor-widget elementor-widget-heading">
+        <div>
+          <h2 style="font-size: 24px; font-weight: bold">Tin mới nhất</h2>
+        </div>
+      </div>
+
+      <div>
+        <div class="container row">
+          <div
+            class="elementor-224273 d-flex mt-3 w-100"
+            *ngFor="let item of listDataNews"
+          >
+            <div class="d-flex">
+              <div class="elementor-element elementor-element-7c73e6a1">
+                <div>
+                  <a routerLink="{{ item.idNews }}">
+                    <img
+                      src="data:image/jpeg;base64,{{ item.image }}"
+                      decoding="async"
+                      width="1200"
+                      height="628"
+                      alt="galaxy-s24-series"
+                      loading="lazy"
+                    />
+                  </a>
+                </div>
+              </div>
+              <div class="d-flex m-3 mt-0 mr-0 mb-0">
+                <div class="d-flex flex-column">
+                  <div>
+                    <div class="d-flex align-items-center">
+                      <img
+                        src="https://hoanghamobile.com/tin-tuc/wp-content/litespeed/avatar/70de41db54c9fdec830e4f8601989236.jpg?ver=1702744992"
+                        class="rounded-circle m-1"
+                        style="width: 30px; height: 30px"
+                      />
+                      <a routerLink="{{ item.idNews }}" class="nav-link">
+                        <strong>{{ item.createUser }} </strong>
+                      </a>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="container">
+                      <h3>
+                        <a
+                          class="lead nav-link"
+                          style="font-size: 20px; font-weight: bold"
+                          routerLink="{{ item.idNews }}"
+                          >{{ item.title }}</a
+                        >
+                      </h3>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="container">
+                      <p>
+                        {{ item.content }}
+                      </p>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="container">
+                      <p class="fw-light">{{ item.createAt }}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

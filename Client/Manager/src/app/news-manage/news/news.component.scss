@@ -1,0 +1,14 @@
+/* Áp dụng kiểu cho nút xóa */
+.delete-button {
+    position: absolute;
+    transition: transform 0.3s ease-in-out;
+    border: none;
+    cursor: pointer;
+    margin: -10px;
+  }
+  
+  /* Hiệu ứng khi di chuột qua nút xóa */
+  .delete-button:hover {
+    transform: scale(1.2);
+  }
+  

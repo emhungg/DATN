@@ -1,0 +1,528 @@
+header {
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+}
+
+.container {
+  min-width: 1200px;
+  width: 1200px;
+  margin: 0 auto;
+}
+
+header .top-navigation {
+  width: 100%;
+  display: inline-flex;
+  background: #00483d;
+  padding: 6px 0;
+}
+
+header .top-navigation ul {
+  list-style: none;
+  margin: 0;
+  padding: 0 10px 0 0;
+  float: right;
+}
+
+header .top-navigation li {
+  float: left;
+  margin-left: 15px;
+}
+
+header .top-navigation li,
+header .top-navigation li a,
+header .top-navigation li a:link,
+header .top-navigation li a:visited {
+  color: white;
+}
+
+header .top-navigation li a:hover {
+  color: red!important;
+}
+
+header .top-navigation li.member {
+  position: relative;
+  padding: 8px 5px;
+  margin: -8px -10px -8px 10px;
+  z-index: 1001;
+}
+
+header .top-navigation li.member i {
+  font-size: 10px;
+}
+
+header .top-navigation li.member .sub {
+  position: absolute;
+  background: transparent linear-gradient(90deg, red 0%, #00483d 100%) 0% 0%
+    no-repeat;
+  z-index: 99;
+  right: 0;
+  top: 32px;
+  display: none;
+}
+
+header .top-navigation li.member:hover {
+  background: transparent linear-gradient(90deg, red 0%, #00483d 100%) 0% 0%
+    no-repeat;
+}
+
+header .top-navigation li.member:hover .sub {
+  display: block;
+}
+
+header .top-navigation li.member .sub ul {
+  margin: 0;
+  padding: 0;
+}
+
+header .top-navigation li.member .sub ul li {
+  margin: 0;
+  padding: 0;
+  float: none;
+}
+
+header .top-navigation li.member .sub ul li a {
+  display: block;
+  border-bottom: 1px solid #036556;
+  white-space: nowrap;
+  padding: 5px 10px;
+}
+
+header .top-navigation li.member .sub ul li i {
+  margin-right: 10px;
+}
+
+header .heading .container {
+  padding: 20px 0;
+  display: flex;
+}
+
+header .heading .logo {
+  width: 256px;
+  padding-right: 10px;
+}
+
+header .heading .search-box {
+  flex-basis: 100%;
+  padding: 2px 0 0 20px;
+  vertical-align: top;
+  position: relative;
+}
+
+header .heading .search-box .border {
+  background: #fff;
+  border-radius: 15px;
+  padding: 5px 10px;
+  box-shadow: 0 4px 6px #ccc;
+}
+
+header .heading .search-box input {
+  border: none;
+  outline: none;
+  padding: 7px 0;
+  width: 100%;
+  font-weight: bold;
+}
+
+header .heading .search-box button {
+  box-shadow: 0 4px 6px #ccc;
+  position: absolute;
+  right: 4px;
+  top: 4px;
+  background: #00483d;
+  background-image: linear-gradient(#00917a, #00483d);
+  border: none;
+  border-radius: 17px;
+  width: 42px;
+  height: 42px;
+  outline: none;
+  font-size: 17px;
+  color: white;
+}
+
+header .heading .search-box button:hover {
+  cursor: pointer;
+  color: red;
+}
+
+header .heading .search-box button:active {
+  top: 0;
+}
+
+header .heading .no-shadow .border {
+  box-shadow: none;
+}
+
+.no-shadow {
+  z-index: 1009;
+  position: relative;
+}
+
+.no-shadow button {
+  margin-top: -2px;
+}
+
+header .heading .order-tools {
+  display: flex;
+  width: 220px;
+  vertical-align: top;
+  padding-left: 25px;
+}
+
+header .heading .order-tools div.item {
+  float: left;
+}
+
+header .heading .order-tools .check-order {
+  margin-right: 25px;
+}
+
+header .heading .order-tools .check-order a {
+  display: block;
+  background: #00483e;
+  border-radius: 10px;
+  padding: 6px 8px;
+  box-shadow: 0 4px 6px #ccc;
+  border: none;
+  font-size: 12px;
+  width: 110px;
+  position: relative;
+}
+
+header .heading .order-tools .check-order .icon {
+  font-size: 30px;
+  position: absolute;
+  left: 8px;
+}
+
+header .heading .order-tools .check-order .text {
+  text-align: left;
+  display: block;
+  margin-left: 40px;
+}
+
+header .heading .order-tools .check-order a:hover {
+  background: red;
+}
+
+
+header .heading .order-tools .cart a,
+header .heading .order-tools .cart a:link,
+header .heading .order-tools .cart a:visited {
+  font-size: 38px;
+  color: #00483e;
+  display: flex;
+}
+
+header .heading .order-tools .cart a:hover {
+  color: red;
+}
+
+header .heading .order-tools .cart a label {
+  display: flex;
+  justify-items: right;
+  justify-content: right;
+}
+
+header .heading .order-tools .cart a label span {
+  text-align: center;
+  background: #ff6801;
+  margin-top: 11px;
+  margin-left: -2px;
+  font-size: 12px;
+  display: block;
+  flex-basis: 100%;
+  border-radius: 4px;
+  height: 21px;
+  padding: 6px;
+  line-height: 12px;
+  color: white;
+}
+
+header .heading .order-tools .cart a label i {
+  color: #ff6801;
+  font-size: 25px;
+  margin-top: 19px;
+  margin-right:2px;
+}
+
+header nav {
+  width: 100%;
+}
+
+header nav ul.root {
+  background: #00483d;
+  box-shadow: 0 4px 6px #ccc;
+  border-radius: 5px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  text-align: center;
+  position: relative;
+  max-width: 1200px;
+}
+
+header nav ul.root li {
+  margin: 8px 14px 4px 14px;
+  display: inline-flex;
+}
+
+header nav ul.root li a,
+header nav ul.root li a:link,
+header nav ul.root li a:visited {
+  font-size: 13px;
+  color: white;
+  display: block;
+  align-items: center;
+  justify-content: center;
+}
+
+header nav ul.root li a .icon {
+  font-size: 26px;
+  margin: 0 auto;
+}
+
+
+header nav ul.root li a span {
+  display: block;
+  text-transform: uppercase;
+  font-size: 10px;
+  white-space: nowrap;
+}
+
+header nav ul.root li a:after {
+  display: block;
+  height: 4px;
+  content: " ";
+  border-radius: 2px;
+  background: #00483d;
+}
+
+header nav ul.root li.actived a:after,
+header nav ul.root li:hover a:after {
+  background: #f7941e;
+}
+
+header nav ul.root li .acitve-link:after {
+  background: #f7941e;
+}
+
+header nav ul.root li:hover .sub-container {
+  display: block;
+  visibility: visible;
+  opacity: 1;
+  width: 100%;
+}
+
+header nav .sub-container {
+  position: absolute;
+  left: 0;
+  top: 55px;
+  z-index: 199;
+  padding-top: 15px;
+  display: none;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: opacity 200ms, visibility 200ms;
+  transition: opacity 200ms, visibility 200ms;
+}
+
+header nav .sub {
+  background: #fff;
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px #ccc;
+  text-align: left;
+  display: flex;
+  justify-content: left;
+}
+
+header nav ul.root .sub h4,
+header nav ul.root .sub h4 a,
+header nav ul.root .sub h4 a:link,
+header nav ul.root .sub h4 a:visited {
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #333;
+  white-space: nowrap;
+}
+
+header nav ul.root .sub a:after {
+  display: none;
+}
+
+header nav .sub .menu {
+  margin: 0 40px 20px 0;
+}
+
+header nav .sub .menu:last-child {
+  margin-left: 0;
+  margin-right: 20px;
+}
+
+header nav .sub .menu:first-child {
+  margin-left: 20px;
+}
+
+header nav .sub ul {
+  background: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+header nav .sub ul li {
+  margin: 0;
+  padding: 0 0 5px 0;
+  white-space: nowrap;
+}
+
+header nav .sub ul li a,
+header nav .sub ul li a:link,
+header nav .sub ul li a:visited {
+  color: #333;
+}
+
+header nav .sub ul li a:hover {
+  color: red;
+}
+
+header nav .sub ul li a:after {
+  content: "";
+  display: none;
+}
+
+header nav .sub .display-row {
+  flex-direction: column;
+}
+
+header nav .sub .display-column {
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+header nav .sub .ads {
+  padding-top: 20px;
+}
+
+header nav .sub .lists {
+  flex-grow: 1;
+}
+
+header nav .sub ul.format_1 li {
+  width: 100%;
+}
+
+header nav .sub ul.format_2 li {
+  width: 50%;
+}
+
+header nav .sub ul.format_3 li {
+  width: 33.3333%;
+}
+
+header nav .sub ul.format_4 li {
+  width: 25%;
+}
+
+header nav .sub ul.format_5 li {
+  width: 20%;
+}
+
+header nav .sub ul.format_6 li {
+  width: 16.666%;
+}
+
+header nav .sub .g0,
+header nav .sub .g1,
+header nav .sub .g2,
+header nav .sub .g3,
+header nav .sub .g4,
+header nav .sub .g5,
+header nav .sub .g6 {
+  flex-grow: 1;
+}
+
+/* css for fix nav */
+
+nav.scroll-to-fixed-fixed ul.root {
+  box-shadow: none;
+}
+
+nav.scroll-to-fixed-fixed ul.root li {
+  margin: 8px 7px 4px 7px;
+}
+
+nav.scroll-to-fixed-fixed ul.root li a,
+nav.scroll-to-fixed-fixed ul.root li a:link,
+nav.scroll-to-fixed-fixed ul.root li a:visited {
+  display: flex;
+  white-space: nowrap;
+}
+
+nav.scroll-to-fixed-fixed ul.root li a .icon {
+  font-size: 15px;
+  margin-right: 4px;
+}
+
+nav.scroll-to-fixed-fixed ul.root li a span {
+  font-size: 12px;
+  line-height: 25px;
+}
+
+nav.scroll-to-fixed-fixed .sub-container {
+  top: 24px;
+}
+
+nav.scroll-to-fixed-fixed ul.root li ul li {
+  margin: 0;
+}
+
+nav.scroll-to-fixed-fixed ul.root li .sub a,
+nav.scroll-to-fixed-fixed ul.root li .sub a:link,
+nav.scroll-to-fixed-fixed ul.root li .sub a:visited {
+  display: block;
+}
+
+/* css for my account  */
+.account-button {
+  position: relative;
+  display: inline-block;
+  margin-right: 100px;
+}
+
+.account-options {
+  position: absolute;
+  top: 21px;
+  width: 120px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  display: none;
+  padding: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.account-options ul li a {
+  display: block;
+  padding: 8px 2px;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.account-options ul li:hover {
+  color: red;
+}
+
+.account-button:hover .account-options {
+  display: block;
+}

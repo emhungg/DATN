@@ -1,0 +1,314 @@
+<header *ngIf="!headerService.isHeaderHidden()">
+  <div class="top-navigation">
+    <div class="container">
+      <ul>
+        <li><a routerLink="/intro/Details">Giới thiệu</a></li>
+        <li><a routerLink="/san-pham-yeu-thich/data">Sản phẩm yêu thích</a></li>
+        <!-- <li>
+          <a routerLink="/trung-tam-bao-hanh">Trung tâm bảo hành</a>
+        </li> -->
+        <li><a routerLink="/viewed">Sản phẩm đã xem</a></li>
+        <li>
+          <a
+            id="login-modal"
+            role="button"
+            *ngIf="!service.isUserLoggedIn()"
+            (click)="login()"
+            >Đăng nhập</a
+          >
+        </li>
+        <li>
+          <a
+            id="login-modal"
+            role="button"
+            (click)="register()"
+            *ngIf="!service.isUserLoggedIn()"
+            >Đăng ký</a
+          >
+        </li>
+        <li>
+          <div class="account-button" *ngIf="service.isUserLoggedIn()">
+            <a routerLink="/tmember/home" class="account-link"
+              >Tài khoản của tôi</a
+            >
+            <div class="account-options">
+              <ul>
+                <li>
+                  <a routerLink="/tmember/home" style="color: black;">Tài khoản</a>
+                  <hr style="color: black;"/>
+                </li>
+                <li>
+                  <a (click)="doLogout()" style="cursor: pointer;color: black;">
+                    Đăng xuất
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- logo and search box -->
+  <div class="heading">
+    <div class="container">
+      <div class="logo">
+        <a routerLink="" title="HoangHaMobile">
+          <img
+            src="/assets/icon/logo-PhotoRoom.png-PhotoRoom.png"
+            alt="HoangHaMobile"
+          />
+        </a>
+      </div>
+
+      <div class="search-box">
+        <form
+          method="get"
+          [formGroup]="searchForm"
+          enctype="application/x-www-form-urlencoded"
+        >
+          <div class="border">
+            <input
+              type="text"
+              id="kwd"
+              name="kwd"
+              formControlName="searchTerm"
+              placeholder="Hôm nay bạn cần tìm gì?"
+            />
+            <button type="submit" class="search" (click)="searchProcess()">
+              <i class="fa fa-search" aria-hidden="true"></i>
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <div class="order-tools">
+        <!-- <div class="item check-order">
+          <a id="btnCheckOrder" routerLink="/order/check">
+            <span class="icon"><i class="icon-truck"></i></span>
+            <span class="text">Kiểm tra đơn hàng</span>
+          </a>
+        </div> -->
+        <div class="item cart">
+          <a routerLink="/cart"
+            ><i class="fal fa-cart-shopping"></i
+            ><label
+              ><i class="fa-solid fa-cart-shopping" style="color:#00483d"></i>
+              <i class="fa-solid fa" style="color: #de6717"></i
+              ><span id="cart-total">{{ cartItemCount }}</span></label
+            ></a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- nav -->
+  <nav
+    [ngStyle]="isHeaderFixed ? fixedStyles : defaultStyles"
+    [ngClass]="{ 'scroll-to-fixed-fixed': isHeaderFixed }"
+  >
+    <div class="container">
+      <ul class="root">
+        <li id="dien-thoai-di-dong">
+          <a
+            routerLink="/dien-thoai"
+            routerLinkActive="acitve-link"
+            [routerLinkActiveOptions]="{ exact: true }"
+          >
+            <i class="icon fa fa-mobile-phone"></i>
+            <span>Điện thoại</span>
+          </a>
+          <div class="sub-container">
+            <div class="sub">
+              <div class="menu g1">
+                <h4>
+                  <a routerLink="/dien-thoai">Hãng sản xuất</a>
+                </h4>
+                <ul class="display-column format_3">
+                  <li><a routerLink="/dien-thoai/apple">Apple</a></li>
+                  <li>
+                    <a routerLink="/dien-thoai/samsung">Samsung</a>
+                  </li>
+                  <li><a routerLink="/dien-thoai/xiaomi">Xiaomi</a></li>
+                  <li><a routerLink="/dien-thoai/oppo">OPPO</a></li>
+                  <li><a routerLink="/dien-thoai/tecno">TECNO</a></li>
+                  <li><a routerLink="/dien-thoai/nokia">Nokia</a></li>
+                  <li><a routerLink="/dien-thoai/realme">realme</a></li>
+                  <li><a routerLink="/dien-thoai/vivo">Vivo</a></li>
+                  <li><a routerLink="/dien-thoai/honor">HONOR</a></li>
+                  <li><a routerLink="/dien-thoai/htc">HTC</a></li>
+                  <li>
+                    <a routerLink="/dien-thoai/infinix">Infinix</a>
+                  </li>
+                  <li>
+                    <a routerLink="/dien-thoai/asus-rog-phone">ROG</a>
+                  </li>
+                  <li><a routerLink="/dien-thoai/nubia">Nubia</a></li>
+                  <li><a routerLink="/dien-thoai/xor">XOR</a></li>
+                  <li>
+                    <a routerLink="/dien-thoai/masstel">Masstel</a>
+                  </li>
+                  <li><a routerLink="/dien-thoai/tcl">TCL</a></li>
+                  <li><a routerLink="/dien-thoai/itel">Itel</a></li>
+                </ul>
+                
+              </div>
+              
+              <div class="menu ads" style="width: 600px">
+                <a routerLink=""
+                  ><img
+                    style="width: 600px"
+                    src="https://hoanghamobile.com/Uploads/2023/10/14/honor-640x266.jpg"
+                    alt="X5 pLus"
+                /></a>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li id="apple">
+          <a
+            routerLink="/apple"
+            routerLinkActive="acitve-link"
+            [routerLinkActiveOptions]="{ exact: true }"
+          >
+            <i class="icon fa-solid fa-mobile"></i>
+            <span>Apple</span>
+          </a>
+        </li>
+        <li id="laptop">
+          <a routerLink="/laptop">
+            <i class="icon fas fa-laptop-code"></i>
+            <span>Laptop</span>
+          </a>
+          <div class="sub-container">
+            <div class="sub">
+              <div class="menu g1">
+                <h4><a routerLink="/laptop">Hãng sản xuất</a></h4>
+                <ul class="display-column format_3">
+                  <li><a routerLink="/laptop/apple">Apple</a></li>
+                  <li><a routerLink="/laptop/asus">ASUS</a></li>
+                  <li><a routerLink="/laptop/dell">Dell</a></li>
+                  <li><a routerLink="/laptop/acer">Acer</a></li>
+                  <li><a routerLink="/laptop/msi">MSI</a></li>
+                  <li><a routerLink="/laptop/lg">LG</a></li>
+                  <li><a routerLink="/laptop/huawei">HUAWEI</a></li>
+                  <li><a routerLink="/laptop/microsoft">Surface</a></li>
+                  <li><a routerLink="/laptop/lenovo">Lenovo</a></li>
+                  <li><a routerLink="/laptop/hp">HP</a></li>
+                  <li><a routerLink="/laptop/gigabyte">GIGABYTE</a></li>
+                  <li><a routerLink="/laptop/itel">Itel</a></li>
+                  <li>
+                    <a routerLink="/laptop/xiaomi">Xiaomi</a>
+                  </li>
+                  <li><a routerLink="/laptop/masstel">Masstel</a></li>
+                </ul>
+                
+              </div>
+              <div class="menu g3">
+                
+              </div>
+
+              <div class="menu ads" style="width: 600px"></div>
+            </div>
+          </div>
+        </li>
+        <li id="tablet">
+          <a routerLink="/tablet">
+            <i class="icon fa-solid fa-tablet"></i>
+            <span>Tablet</span>
+          </a>
+          <div class="sub-container">
+            <div class="sub">
+              <div class="menu g2">
+                <h4><a routerLink="/tablet">Hãng sản xuất</a></h4>
+                <ul class="display-column format_3">
+                  <li><a routerLink="/tablet/apple">Apple</a></li>
+                  <li><a routerLink="/tablet/samsung">Samsung</a></li>
+                  <li>
+                    <a routerLink="/tablet/microsoft">Microsoft Surface</a>
+                  </li>
+                  <li><a routerLink="/tablet/xiaomi">Xiaomi</a></li>
+                  <li><a routerLink="/tablet/nokia">Nokia</a></li>
+                  <li><a routerLink="/tablet/tcl">TCL</a></li>
+                  <li><a routerLink="/tablet/lenovo">Lenovo</a></li>
+                  <li><a routerLink="/tablet/oppo">OPPO</a></li>
+                  <li><a routerLink="/tablet/huawei">Huawei</a></li>
+                  <li><a routerLink="/tablet/htc">HTC</a></li>
+                  <li><a routerLink="/tablet/yuho">Yuho</a></li>
+                </ul>
+              </div>
+
+              <div class="menu ads" style="width: 600px"></div>
+            </div>
+          </div>
+        </li>
+        <li id="man-hinh">
+          <a routerLink="other/man-hinh">
+            <i class="icon fas fa-desktop"></i>
+            <span>Màn hình</span>
+          </a>
+         
+        </li>
+        <li id="smart-tv">
+          <a routerLink="other/smart-tv">
+            <i class="icon fa fa-tv"></i>
+            <span>Smart TV</span>
+          </a>
+          
+        </li>
+        <li id="dong-ho">
+          <a routerLink="other/dong-ho">
+            <i class="icon fal fa-watch"></i>
+            <span>Đồng hồ</span>
+          </a>
+         
+        </li>
+        <li id="loa-tai-nghe">
+          <a routerLink="other/am-thanh">
+            <i class="icon fa-solid fa-headphones-simple"></i>
+            <span>&#194;m thanh</span>
+          </a>
+          
+        </li>
+        <li id="smart-home">
+          <a routerLink="other/smart-home">
+            <i class="icon fa-solid fa-house-signal"></i>
+            <span>Smart Home</span>
+          </a>
+          
+        </li>
+        <li id="phu-kien">
+          <a routerLink="other/phu-kien">
+            <i class="icon fa-solid fa-microchip"></i>
+            <span>Phụ kiện</span>
+          </a>
+          
+        </li>
+        <li id="do-choi-cong-nghe">
+          <a routerLink="other/do-choi-cn">
+            <i class="icon fa-solid fa-gamepad"></i>
+            <span>Đồ chơi CN</span>
+          </a>
+          
+        </li>
+        <li id="kho-san-pham-cu">
+          <a routerLink="other/kho-san-pham-cu">
+            <i class="icon fa-solid fa-retweet"></i>
+            <span>Máy trôi</span>
+          </a>
+          
+        </li>
+
+        <li id="tin-tuc">
+          <a routerLink="/tin-tuc">
+            <i class="icon fa fa-newspaper-o"></i>
+            <span>Tin hot</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <!-- nav -->
+</header>

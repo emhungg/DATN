@@ -1,0 +1,42 @@
+.custom-form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 15px;
+    text-align: center;
+}
+
+.custom-icon {
+    margin-top: 15px;
+}
+
+.custom-h2 {
+    color: red;
+}
+
+.custom-input {
+    border: none;
+    border-bottom: 1px solid #e8e8e8;
+    padding: 10px 20px;
+    background: transparent;
+    font-size: 16px;
+}
+
+.custom-button {
+    width: 100%;
+}
+
+/* custom button come back */
+.custom-button-quay-lai {
+    background-color: transparent; /* Màu nền trong suốt */
+    border: none; /* Loại bỏ border */
+    width: 100px; /* Chiều rộng 100px */
+    display: flex; /* Sử dụng flexbox để căn chỉnh icon và văn bản */
+    align-items: center; /* Căn chỉnh theo chiều dọc (dọc giữa) */
+    padding: 0; /* Loại bỏ padding mặc định */
+    margin: 30px;
+  }
+  
+  .custom-button-quay-lai i {
+    margin-right: 5px; /* Khoảng cách giữa icon và văn bản */
+  }
+  
