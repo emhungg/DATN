@@ -252,8 +252,7 @@ app.Use(async (context, next) =>
 });
 #endregion
 
-// use Response compression
-app.UseResponseCompression();
+
 app.UseAuthorization();
 
 app.MapControllers();
@@ -261,4 +260,15 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller}/{action}"
     );
+
+app.UseWhen(
+    context =>
+    {
+        // Kiểm tra nếu không có header "Accept-Encoding" hoặc chứa "identity"
+        var acceptEncodingHeader = context.Request.Headers["Accept-Encoding"].ToString();
+        return !string.IsNullOrEmpty(acceptEncodingHeader) &&
+               !acceptEncodingHeader.Contains("identity", StringComparison.OrdinalIgnoreCase);
+    },
+    appBuilder => appBuilder.UseResponseCompression());
+
 app.Run();
