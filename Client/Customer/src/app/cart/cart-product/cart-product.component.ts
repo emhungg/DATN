@@ -117,6 +117,45 @@ export class CartProductComponent {
   }
 
   // Hàm xử lý khi nút "-" được click
+  changeQuantity(index: number, event: any) {
+    const maxQuantity = this.cartItems[index].totalQuantity;
+    const quantityString = event.value;
+    const quantity = parseInt(quantityString, 10);
+    if (quantity <= 0) {
+      this.toastr.error('Số lượng không thể giảm xuống dưới 1.');
+    } else if (quantity > maxQuantity) {
+      this.toastr.error('Sản phẩm đã đạt đến số lượng tối đa.');
+    } else {
+      this.cartItems[index].quantity = quantity;
+      if (this.authService.isUserLoggedIn()) {
+        const cartUpdateQuantity = {
+          productId: this.cartItems[index].productId || '',
+          quantity: quantity,
+          price: 0
+        }
+        this.cartService.updateQuantity(cartUpdateQuantity).subscribe(res => {
+          console.log(res)
+          this.cartService.notifyCartChanged()
+        });
+      } else {
+        this.cartService.updateCartItems(this.cartItems);
+      }
+      this.calculationTotalPrice()
+    }
+  }
+
+  handleEnterKey(index: number, event: any) {
+    if (event.key === 'Enter') {
+      // Ngăn chặn hành động mặc định của phím Enter trên trình duyệt
+      event.preventDefault();
+      // Lấy giá trị từ input và gọi hàm changeQuantity
+      const inputElement = event.target as HTMLInputElement;
+      this.changeQuantity(index, inputElement);
+    }
+  }
+  
+
+  // Hàm xử lý khi nút "-" được click
   decreaseQuantity(index: number) {
     if (this.cartItems[index].quantity > 1) {
       // Giảm số lượng nếu nó lớn hơn 1

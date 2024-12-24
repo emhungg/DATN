@@ -184,8 +184,7 @@
 }
 
 .block__product-item__outer .block__product-item .product-info .product-name {
-  line-clamp: 2;
-  -webkit-line-clamp: 2;
+  -webkit-line: 2;
   -webkit-box-orient: vertical;
   color: #3a3a3a;
   display: -webkit-box;
