@@ -76,6 +76,7 @@ export class ProductAddComponent {
             console.log(res)
             this.toastr.success("Thêm thành công sản phẩm mới!")
             this.productService.fetchData();
+            this.closePopUp()
           }, error => {
             console.log(error)
             this.toastr.error("Có lỗi xảy ra trong quá trình tạo mới!")

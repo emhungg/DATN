@@ -31,9 +31,9 @@
     "primeicons": "^6.0.1",
     "primeng": "^16.9.1",
     "rxjs": "~7.8.0",
-    "sweetalert2": "^11.9.0",
+    "sweetalert2": "^11.15.3",
     "tslib": "^2.3.0",
-    "xng-breadcrumb": "^10.0.1",
+    "xng-breadcrumb": "^10.0.2",
     "zone.js": "~0.13.0"
   },
   "devDependencies": {

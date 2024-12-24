@@ -114,7 +114,7 @@ export class ProductDetailsComponent {
 
   // add to cart
   addToCart(): void {
-
+    const totalQuantity = this.dataProductDetail.productQuantity;
     if (this.authService.isUserLoggedIn()) {
       const cartInsertData = {
         cartInsertData: [
@@ -124,21 +124,28 @@ export class ProductDetailsComponent {
             price: this.dataProductDetail.productSell > 0 ? this.dataProductDetail.productSell : this.dataProductDetail.productPrice
           }]
       }
+
+
       this.cartService.syncCartWithDatabase(cartInsertData).subscribe(res => {
-        this.noti.success('Thêm sản phẩm vào giỏ hàng thành công!', "", {
-          positionClass: 'toast-bottom-center'
-        })
-        this.cartService.getCartItems().subscribe((cartItems) => {
+        this.cartService.getCartItems().subscribe((cartItems: any[]) => {
+          const existingItem = cartItems.find((cartItem) => cartItem.productId === this.dataProductDetail.productId);
+          if (existingItem) {
+            if (existingItem.quantity < totalQuantity) {
+              this.noti.success('Thêm sản phẩm vào giỏ hàng thành công!', "", {
+                positionClass: 'toast-bottom-center'
+              })
+            } else {
+              this.noti.error('Số lượng sản phẩm đã vượt quá giới hạn.');
+            }
+          }
         });
+        
         this.cartService.notifyCartChanged()
       }, error => {
         this.noti.error('Thêm sản phẩm vào giỏ hàng không thành công!')
       })
       this.cartService.clearCart();
     } else {
-      debugger
-      const totalQuantity = this.dataProductDetail.productQuantity;
-      console.log(totalQuantity)
       const newItem: cartItem = {
         productId: this.dataProductDetail.productId,
         productName: this.dataProductDetail.productName,

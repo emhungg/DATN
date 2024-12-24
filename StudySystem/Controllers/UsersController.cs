@@ -93,7 +93,7 @@ namespace StudySystem.Controllers
         /// <returns></returns>
         /// <exception cref="BadHttpRequestException"></exception>
         [HttpPost("~/api/change-name-gender")]
-        private async Task<ActionResult<StudySystemAPIResponse<object>>> ChangeNameGender(ChangeNameGenderRequestModel reques)
+        public async Task<ActionResult<StudySystemAPIResponse<object>>> ChangeNameGender(ChangeNameGenderRequestModel reques)
         {
             var rs = await _userService.ChangeNameGender(reques);
             if (!rs)
@@ -110,7 +110,7 @@ namespace StudySystem.Controllers
         /// <returns></returns>
         /// <exception cref="BadHttpRequestException"></exception>
         [HttpPost("~/api/change-password")]
-        private async Task<ActionResult<StudySystemAPIResponse<object>>> ChangePassword(PassswordChangeRequestModel reques)
+        public async Task<ActionResult<StudySystemAPIResponse<object>>> ChangePassword(PassswordChangeRequestModel reques)
         {
             var rs = await _userService.ChangePassword(reques);
             if (!rs)
@@ -127,7 +127,7 @@ namespace StudySystem.Controllers
         /// <returns></returns>
         /// <exception cref="BadHttpRequestException"></exception>
         [HttpPost("~/api/change-address")]
-        private async Task<ActionResult<StudySystemAPIResponse<object>>> ChangeAddress(ChangeAddressRequestModel reques)
+        public async Task<ActionResult<StudySystemAPIResponse<object>>> ChangeAddress(ChangeAddressRequestModel reques)
         {
             var rs = await _userService.ChangeAddress(reques);
             if (!rs)
